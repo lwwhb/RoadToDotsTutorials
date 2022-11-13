@@ -1,2 +1,4 @@
 # RoadToDotsTutorials
-Road to dots tutorials
+#### 11月13日
+* Jobs Lesson 0 完成
+
