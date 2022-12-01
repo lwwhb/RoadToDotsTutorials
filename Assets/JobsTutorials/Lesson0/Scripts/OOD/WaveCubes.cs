@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 
 namespace Jobs.OOD
@@ -10,6 +11,8 @@ namespace Jobs.OOD
         [Range(10, 100)] public int xHalfCount = 40;
         [Range(10, 100)] public int zHalfCount = 40;
         private List<Transform> cubesList;
+        
+        static readonly ProfilerMarker<int> profilerMarker = new ProfilerMarker<int>("WaveCubes UpdateTransform", "Objects Count");
         void Start()
         {
             cubesList = new List<Transform>();
@@ -27,10 +30,13 @@ namespace Jobs.OOD
         // Update is called once per frame
         void Update()
         {
-            for (var i = 0; i < cubesList.Count; i++)
+            using (profilerMarker.Auto(cubesList.Count))
             {
-                var distance = Vector3.Distance(cubesList[i].position, Vector3.zero);
-                cubesList[i].localPosition += Vector3.up * Mathf.Sin(Time.time * 3f + distance * 0.2f);
+                for (var i = 0; i < cubesList.Count; i++)
+                {
+                    var distance = Vector3.Distance(cubesList[i].position, Vector3.zero);
+                    cubesList[i].localPosition += Vector3.up * Mathf.Sin(Time.time * 3f + distance * 0.2f);
+                }
             }
         }
     }

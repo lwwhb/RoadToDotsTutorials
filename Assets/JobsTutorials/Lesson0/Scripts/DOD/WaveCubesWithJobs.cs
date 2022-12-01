@@ -1,7 +1,9 @@
 using System;
 using Unity.Burst;
 using Unity.Collections;
+using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Jobs;
 
@@ -18,9 +20,11 @@ namespace Jobs.DOD
             transform.localPosition += Vector3.up * math.sin(deltaTime * 3f + distance * 0.2f);
         }
     }
+    
 
     public class WaveCubesWithJobs : MonoBehaviour
     {
+        static readonly ProfilerMarker<int> profilerMarker = new ProfilerMarker<int>("WaveCubesWithJobs UpdateTransform", "Objects Count");
         public GameObject cubeAchetype = null;
         [Range(10, 100)] public int xHalfCount = 40;
         [Range(10, 100)] public int zHalfCount = 40;
@@ -30,9 +34,9 @@ namespace Jobs.DOD
         void Start()
         {
             transformAccessArray = new TransformAccessArray(4 * xHalfCount * zHalfCount);
-            for (var z = -zHalfCount; z <= zHalfCount; z++)
+            for (var z = -zHalfCount; z < zHalfCount; z++)
             {
-                for (var x = -xHalfCount; x <= xHalfCount; x++)
+                for (var x = -xHalfCount; x < xHalfCount; x++)
                 {
                     var cube = Instantiate(cubeAchetype);
                     cube.transform.position = new Vector3(x * 1.1f, 0, z * 1.1f);
@@ -43,12 +47,15 @@ namespace Jobs.DOD
 
         void Update()
         {
-            var job = new WaveCubesJob
+            using (profilerMarker.Auto(transformAccessArray.length))
             {
-                deltaTime = Time.time,
-            };
-            var handler = job.Schedule(transformAccessArray);
-            handler.Complete();
+                var waveCubesJob = new WaveCubesJob
+                {
+                    deltaTime = Time.time,
+                };
+                var waveCubesJobhandle = waveCubesJob.Schedule(transformAccessArray);
+                waveCubesJobhandle.Complete();
+            }
         }
 
         private void OnDestroy()
