@@ -8,13 +8,15 @@ namespace DOTS.DOD.LESSON0
     partial struct RotateCubeJob : IJobEntity
     {
         public float deltaTime;
-        void Execute(ref LocalToWorldTransform transform, in RotateSpeed speed)
+        void Execute(ref LocalTransform transform, in RotateSpeed speed)
         {
-            transform.Value = transform.Value.RotateY(speed.rotateSpeed * deltaTime);
+            transform = transform.RotateY(speed.rotateSpeed * deltaTime);
         }
     }
     
     [BurstCompile]
+    [RequireMatchingQueriesForUpdate]
+    [UpdateInGroup(typeof(CubeRotateWithIJobEntitySystemGroup))]
     public partial struct CubeRotateWithIJobEntitySystem : ISystem
     {
         [BurstCompile]

@@ -4,6 +4,8 @@ using Unity.Transforms;
 
 namespace DOTS.DOD.LESSON0
 {
+    [RequireMatchingQueriesForUpdate]
+    [UpdateInGroup(typeof(CubeRotateSystemGroup))]
     [BurstCompile]
     public partial struct CubeRotateSystem : ISystem
     {
@@ -24,9 +26,9 @@ namespace DOTS.DOD.LESSON0
         {
             float deltaTime = SystemAPI.Time.DeltaTime;
             foreach (var (transform, speed) in
-                     SystemAPI.Query<RefRW<LocalToWorldTransform>, RefRO<RotateSpeed>>())
+                     SystemAPI.Query<RefRW<LocalTransform>, RefRO<RotateSpeed>>())
             {
-                transform.ValueRW.Value = transform.ValueRO.Value.RotateY(
+                transform.ValueRW = transform.ValueRO.RotateY(
                     speed.ValueRO.rotateSpeed * deltaTime);
             }
         }

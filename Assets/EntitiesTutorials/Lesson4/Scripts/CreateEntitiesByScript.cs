@@ -8,7 +8,7 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace DOTS.DOD
+namespace DOTS.DOD.LESSON4
 {
     struct CubeGeneratorByScript : IComponentData
     {
@@ -46,6 +46,7 @@ namespace DOTS.DOD
     }
     
     [BurstCompile]
+    [UpdateInGroup(typeof(CreateEntitiesByScriptsSystemGroup))]
     public partial struct CubeGenerateByScriptSystem : ISystem
     {
         [BurstCompile]

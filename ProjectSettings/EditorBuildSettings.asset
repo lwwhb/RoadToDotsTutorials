@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Startup/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/EntitiesTutorials/Lesson0/Scenes/RotateCubeAuthoring.unity
+    guid: 743c4e09248bf4d60b111749dd102344
   m_configObjects: {}

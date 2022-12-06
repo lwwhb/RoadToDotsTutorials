@@ -3,9 +3,10 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-namespace DOTS.DOD
+namespace DOTS.DOD.LESSON5
 {
     [BurstCompile]
+    [UpdateInGroup(typeof(WaveCubesWithDotsSystemGroup))]
     public partial struct WaveCubesGenerateSystem : ISystem
     {
         [BurstCompile]

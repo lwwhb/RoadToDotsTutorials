@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD
+namespace DOTS.DOD.LESSON1
 {
     public class CubeAuthoring : MonoBehaviour
     {
@@ -34,6 +34,7 @@ namespace DOTS.DOD
     }
 
     [BurstCompile]
+    [UpdateInGroup(typeof(CreateEntitiesByPrefabSystemGroup))]
     public partial struct CubeGenerateByPrefabSystem : ISystem
     {
         [BurstCompile]

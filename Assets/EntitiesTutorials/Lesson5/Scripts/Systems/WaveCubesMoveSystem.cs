@@ -2,9 +2,11 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
-namespace DOTS.DOD
+namespace DOTS.DOD.LESSON5
 {
     [BurstCompile]
+    [UpdateInGroup(typeof(WaveCubesWithDotsSystemGroup))]
+    [UpdateAfter(typeof(WaveCubesGenerateSystem))]
     public partial struct WaveCubesMoveSystem : ISystem
     {
         [BurstCompile]
