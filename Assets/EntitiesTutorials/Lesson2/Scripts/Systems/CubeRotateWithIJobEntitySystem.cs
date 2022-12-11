@@ -1,11 +1,12 @@
+using DOTS.DOD.LESSON0;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD.LESSON0
+namespace DOTS.DOD.LESSON2
 {
-    partial struct RotateCubeJob : IJobEntity
+    partial struct RotateCubeWithJobEntity : IJobEntity
     {
         public float deltaTime;
         void Execute(ref LocalTransform transform, in RotateSpeed speed)
@@ -34,8 +35,10 @@ namespace DOTS.DOD.LESSON0
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var job = new RotateCubeJob { deltaTime = SystemAPI.Time.DeltaTime };
+            var job = new RotateCubeWithJobEntity { deltaTime = SystemAPI.Time.DeltaTime };
             job.ScheduleParallel();
+            //job.Schedule();
+            //job.Run();
         }
     }
 }

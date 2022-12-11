@@ -9,10 +9,4 @@ namespace DOTS.DOD.LESSON0
     {
         protected override string SceneName => "RotateCubeAuthoring";
     }
-    
-    [UpdateInGroup(typeof(Lesson0SystemGroup))]
-    public class CubeRotateWithIJobEntitySystemGroup : SceneSystemGroup
-    {
-        protected override string SceneName => "RotateCubeWithIJobEntityAuthoring";
-    }
 }

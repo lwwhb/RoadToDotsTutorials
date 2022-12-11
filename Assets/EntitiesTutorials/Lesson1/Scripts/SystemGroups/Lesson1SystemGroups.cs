@@ -1,12 +1,13 @@
 using Unity.Entities;
+
 namespace DOTS.DOD.LESSON1
 {
-    [DisableAutoCreation]
     public class Lesson1SystemGroup : ComponentSystemGroup { }
-    
+
     [UpdateInGroup(typeof(Lesson1SystemGroup))]
-    public class CreateEntitiesByPrefabSystemGroup : SceneSystemGroup
+    public class RotateCubesFilterSystemGroup : SceneSystemGroup
     {
-        protected override string SceneName => "CreateEntitiesByPrefab";
+        protected override string SceneName => "RotateCubesFilter";
     }
+    
 }

@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD.LESSON1
+namespace DOTS.DOD.LESSON3
 {
     public class CubeAuthoring : MonoBehaviour
     {
