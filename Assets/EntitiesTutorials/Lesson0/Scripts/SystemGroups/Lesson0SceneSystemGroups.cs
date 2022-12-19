@@ -5,8 +5,8 @@ namespace DOTS.DOD.LESSON0
     public class Lesson0SystemGroup : ComponentSystemGroup { }
     
     [UpdateInGroup(typeof(Lesson0SystemGroup))]
-    public class CubeRotateSystemGroup : SceneSystemGroup
+    public class CubeRotateSystemGroup : AuthoringSceneSystemGroup
     {
-        protected override string SceneName => "RotateCubeAuthoring";
+        protected override string AuthoringSceneName => "RotateCubeAuthoring";
     }
 }

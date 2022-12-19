@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.unity.collab-proxy": "1.17.6",
+    "com.unity.collab-proxy": "1.17.7",
     "com.unity.entities": "1.0.0-pre.15",
     "com.unity.entities.graphics": "1.0.0-pre.15",
     "com.unity.ide.rider": "3.0.16",
@@ -8,7 +8,7 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.profiling.core": "1.0.2",
     "com.unity.properties": "2.1.0-exp.3",
-    "com.unity.render-pipelines.universal": "14.0.3",
+    "com.unity.render-pipelines.universal": "14.0.4",
     "com.unity.test-framework": "1.1.33",
     "com.unity.test-framework.performance": "2.8.1-preview",
     "com.unity.textmeshpro": "3.0.6",

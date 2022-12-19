@@ -8,7 +8,7 @@ using Unity.Transforms;
 
 namespace DOTS.DOD.LESSON2
 {
-    partial struct RotateCubeWithJobChunk : IJobChunk
+    struct RotateCubeWithJobChunk : IJobChunk
     {
         public float deltaTime;
         public ComponentTypeHandle<LocalTransform> TransformTypeHandle;

@@ -5,14 +5,14 @@ namespace DOTS.DOD.LESSON2
     public class Lesson2SystemGroup : ComponentSystemGroup { }
 
     [UpdateInGroup(typeof(Lesson2SystemGroup))]
-    public class CubeRotateWithIJobEntitySystemGroup : SceneSystemGroup
+    public class CubeRotateWithIJobEntitySystemGroup : AuthoringSceneSystemGroup
     {
-        protected override string SceneName => "RotateCubeWithIJobEntity";
+        protected override string AuthoringSceneName => "RotateCubeWithIJobEntity";
     }
     
     [UpdateInGroup(typeof(Lesson2SystemGroup))]
-    public class CubeRotateWithIJobChunkSystemGroup : SceneSystemGroup
+    public class CubeRotateWithIJobChunkSystemGroup : AuthoringSceneSystemGroup
     {
-        protected override string SceneName => "RotateCubeWithIJobChunk";
+        protected override string AuthoringSceneName => "RotateCubeWithIJobChunk";
     }
 }

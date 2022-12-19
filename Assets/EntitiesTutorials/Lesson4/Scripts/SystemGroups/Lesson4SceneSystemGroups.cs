@@ -1,13 +1,12 @@
 using Unity.Entities;
 namespace DOTS.DOD.LESSON4
 {
-    [DisableAutoCreation]
     public class Lesson4SystemGroup : ComponentSystemGroup { }
     
     [UpdateInGroup(typeof(Lesson4SystemGroup))]
-    public class CreateEntitiesByScriptsSystemGroup : SceneSystemGroup
+    public class CreateEntitiesByScriptsSystemGroup : AuthoringSceneSystemGroup
     {
-        protected override string SceneName => "CreateEntitiesByScripts";
+        protected override string AuthoringSceneName => "CreateEntitiesByScripts";
     }
     
 }

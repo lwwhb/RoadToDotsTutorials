@@ -1,12 +1,11 @@
 using Unity.Entities;
 namespace DOTS.DOD.LESSON3
 {
-    [DisableAutoCreation]
     public class Lesson3SystemGroup : ComponentSystemGroup { }
     
     [UpdateInGroup(typeof(Lesson3SystemGroup))]
-    public class CreateEntitiesByPrefabSystemGroup : SceneSystemGroup
+    public class CreateEntitiesByPrefabSystemGroup : AuthoringSceneSystemGroup
     {
-        protected override string SceneName => "CreateEntitiesByPrefab";
+        protected override string AuthoringSceneName => "CreateEntitiesByPrefab";
     }
 }

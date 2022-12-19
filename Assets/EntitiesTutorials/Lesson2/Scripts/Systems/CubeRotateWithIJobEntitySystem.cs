@@ -1,10 +1,11 @@
 using DOTS.DOD.LESSON0;
+using DOTS.DOD.LESSON2;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD.LESSON2
+namespace DOTS.DOD.LESSON3
 {
     partial struct RotateCubeWithJobEntity : IJobEntity
     {

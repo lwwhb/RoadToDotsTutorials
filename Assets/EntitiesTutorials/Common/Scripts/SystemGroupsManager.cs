@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace DOTS.DOD
 {
-    public abstract class SceneSystemGroup : ComponentSystemGroup
+    public abstract class AuthoringSceneSystemGroup : ComponentSystemGroup
     {
         private bool initialized;
         protected override void OnCreate()
@@ -24,7 +24,7 @@ namespace DOTS.DOD
                     var subScene = Object.FindObjectOfType<SubScene>();
                     if (subScene != null)
                     {
-                        Enabled = SceneName == subScene.gameObject.scene.name;
+                        Enabled = AuthoringSceneName == subScene.gameObject.scene.name;
                     }
                     else
                     {
@@ -36,7 +36,7 @@ namespace DOTS.DOD
             base.OnUpdate();
         }
 
-        protected abstract string SceneName { get; }
+        protected abstract string AuthoringSceneName { get; }
     }
 }
 
