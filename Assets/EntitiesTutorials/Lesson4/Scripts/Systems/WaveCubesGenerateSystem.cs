@@ -3,7 +3,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-namespace DOTS.DOD.LESSON5
+namespace DOTS.DOD.LESSON4
 {
     [BurstCompile]
     [UpdateInGroup(typeof(WaveCubesWithDotsSystemGroup))]

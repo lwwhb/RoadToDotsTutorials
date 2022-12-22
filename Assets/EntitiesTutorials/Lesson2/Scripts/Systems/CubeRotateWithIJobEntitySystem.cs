@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace DOTS.DOD.LESSON3
 {
+    [BurstCompile]
     partial struct RotateCubeWithJobEntity : IJobEntity
     {
         public float deltaTime;

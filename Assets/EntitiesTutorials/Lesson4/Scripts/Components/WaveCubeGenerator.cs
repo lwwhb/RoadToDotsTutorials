@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace DOTS.DOD
+namespace DOTS.DOD.LESSON4
 {
     struct WaveCubeGenerator : IComponentData
     {

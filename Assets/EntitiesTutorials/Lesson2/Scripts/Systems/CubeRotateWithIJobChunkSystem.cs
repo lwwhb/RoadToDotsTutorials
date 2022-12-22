@@ -8,6 +8,7 @@ using Unity.Transforms;
 
 namespace DOTS.DOD.LESSON2
 {
+    [BurstCompile]
     struct RotateCubeWithJobChunk : IJobChunk
     {
         public float deltaTime;

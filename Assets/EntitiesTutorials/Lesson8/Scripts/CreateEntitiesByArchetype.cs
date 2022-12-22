@@ -4,7 +4,7 @@ using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD.LESSON4
+namespace DOTS.DOD.LESSON8
 {
     public class CreateEntitiesByArchetype : MonoBehaviour
     {

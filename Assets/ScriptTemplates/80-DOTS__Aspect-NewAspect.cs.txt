@@ -1,0 +1,8 @@
+using Unity.Entities;
+
+#ROOTNAMESPACEBEGIN#
+readonly partial struct #SCRIPTNAME# : IAspect
+{
+#NOTRIM#
+}
+#ROOTNAMESPACEEND#

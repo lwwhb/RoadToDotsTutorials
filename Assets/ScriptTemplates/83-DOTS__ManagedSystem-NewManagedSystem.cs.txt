@@ -1,0 +1,13 @@
+using Unity.Burst;
+using Unity.Entities;
+
+#ROOTNAMESPACEBEGIN#
+[RequireMatchingQueriesForUpdate]
+public partial struct #SCRIPTNAME# : SystemBase
+{
+    protected override void OnUpdate()
+    {
+    #NOTRIM#
+    }
+}        
+#ROOTNAMESPACEEND#

@@ -8,7 +8,7 @@ using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace DOTS.DOD.LESSON4
+namespace DOTS.DOD.LESSON8
 {
     struct CubeGeneratorByScript : IComponentData
     {

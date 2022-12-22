@@ -1,0 +1,13 @@
+using Unity.Burst;
+using Unity.Entities;
+
+#ROOTNAMESPACEBEGIN#
+[BurstCompile]
+partial struct #SCRIPTNAME# : IJobEntity
+{
+    void Execute(ref, in)
+    {
+    #NOTRIM#
+    }
+}        
+#ROOTNAMESPACEEND#

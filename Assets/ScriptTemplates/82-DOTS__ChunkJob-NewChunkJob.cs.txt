@@ -1,0 +1,13 @@
+using Unity.Burst;
+using Unity.Entities;
+
+#ROOTNAMESPACEBEGIN#
+[BurstCompile]
+struct #SCRIPTNAME#  : IJobChunk
+{
+    public void Execute(in ArchetypeChunk chunk, int unfilteredChunkIndex, bool useEnabledMask, in v128 chunkEnabledMask)
+    {       
+    #NOTRIM#
+    }
+}           
+#ROOTNAMESPACEEND#

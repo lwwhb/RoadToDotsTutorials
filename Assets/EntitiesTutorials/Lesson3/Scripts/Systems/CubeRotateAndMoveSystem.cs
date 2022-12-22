@@ -7,6 +7,7 @@ namespace DOTS.DOD.LESSON3
 {
     [BurstCompile]
     [RequireMatchingQueriesForUpdate]
+    [UpdateAfter(typeof(CubeGenerateByPrefabSystem))]
     [UpdateInGroup(typeof(CreateEntitiesByPrefabSystemGroup))]
     partial struct CubeRotateAndMoveSystem : ISystem
     {
