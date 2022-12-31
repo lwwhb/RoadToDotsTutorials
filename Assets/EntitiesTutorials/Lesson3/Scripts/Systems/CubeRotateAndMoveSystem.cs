@@ -20,7 +20,7 @@ namespace DOTS.DOD.LESSON3
         [BurstCompile]
         public void OnDestroy(ref SystemState state)
         {
-            
+            state.RequireForUpdate<RotateAndMoveSpeed>();
         }
         
         [BurstCompile]

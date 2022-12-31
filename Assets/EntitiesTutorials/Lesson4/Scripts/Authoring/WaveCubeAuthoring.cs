@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace DOTS.DOD.LESSON4
 {
-    public class WaveCubeAuthoring : MonoBehaviour
+    public class WaveCubeGeneratorAuthoring : MonoBehaviour
     {
         public GameObject cubePrefab = null;
         [Range(10, 100)] public int xHalfCount = 40;
         [Range(10, 100)] public int zHalfCount = 40;
         
-        class WaveCubeBaker : Baker<WaveCubeAuthoring>
+        class WaveCubeGeneratorBaker : Baker<WaveCubeGeneratorAuthoring>
         {
-            public override void Bake(WaveCubeAuthoring authoring)
+            public override void Bake(WaveCubeGeneratorAuthoring authoring)
             {
                 AddComponent(new WaveCubeGenerator
                 {

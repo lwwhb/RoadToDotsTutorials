@@ -22,3 +22,6 @@
 #### 12月22日
 *   Entities Lesson4 完成
 *   添加了DOTS ScriptTemplates
+
+#### 12月31日
+*	Entities Lesson5 完成

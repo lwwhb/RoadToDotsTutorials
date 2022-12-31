@@ -1,0 +1,8 @@
+#ROOTNAMESPACEBEGIN#
+
+public class #SCRIPTNAME# : AuthoringSceneSystemGroup
+{
+    protected override string AuthoringSceneName => "YourSceneName";
+}       
+
+#ROOTNAMESPACEEND#
