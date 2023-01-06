@@ -25,3 +25,6 @@
 
 #### 12月31日
 *	Entities Lesson5 完成
+
+#### 2023年1月6日
+*	Entities Lesson6 完成
