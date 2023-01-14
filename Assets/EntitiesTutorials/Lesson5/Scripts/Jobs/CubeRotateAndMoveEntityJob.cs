@@ -10,13 +10,20 @@ namespace DOTS.DOD.LESSON5
     partial struct CubeRotateAndMoveEntityJob : IJobEntity
     {
         public float deltaTime;
-
-        void Execute(ref LocalTransform transform, in RandomTarget target, in RotateAndMoveSpeed speed)
+        public EntityCommandBuffer.ParallelWriter ecbParallel;
+        void Execute([ChunkIndexInQuery] int chunkIndex, Entity entity ,ref LocalTransform transform, in RandomTarget target, in RotateAndMoveSpeed speed)
         {
             var distance = math.distance(transform.Position, target.targetPos);
-            float3 dir =  math.normalize(target.targetPos - transform.Position);
-            transform.Position += dir * speed.moveSpeed * deltaTime;
-            transform = transform.RotateY(speed.rotateSpeed * deltaTime);
+            if (distance < 0.02f)
+            {
+                ecbParallel.DestroyEntity(chunkIndex, entity);
+            }
+            else
+            {
+                float3 dir =  math.normalize(target.targetPos - transform.Position);
+                transform.Position += dir * speed.moveSpeed * deltaTime;
+                transform = transform.RotateY(speed.rotateSpeed * deltaTime);
+            }
         }
     }
 }

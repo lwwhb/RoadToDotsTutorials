@@ -28,3 +28,7 @@
 
 #### 2023年1月6日
 *	Entities Lesson6 完成
+
+#### 2023年1月14日
+*	Entities Lesson5 更新销毁逻辑
+* 	Entities Lesson7 完成
