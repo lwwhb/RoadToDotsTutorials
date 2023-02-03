@@ -14,13 +14,12 @@ namespace DOTS.DOD.LESSON3
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            
+            state.RequireForUpdate<RotateAndMoveSpeed>();
         }
         
         [BurstCompile]
         public void OnDestroy(ref SystemState state)
         {
-            state.RequireForUpdate<RotateAndMoveSpeed>();
         }
         
         [BurstCompile]

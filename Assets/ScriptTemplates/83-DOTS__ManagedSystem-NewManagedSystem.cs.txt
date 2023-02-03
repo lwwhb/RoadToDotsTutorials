@@ -3,7 +3,7 @@ using Unity.Entities;
 
 #ROOTNAMESPACEBEGIN#
 [RequireMatchingQueriesForUpdate]
-public partial struct #SCRIPTNAME# : SystemBase
+public partial class #SCRIPTNAME# : SystemBase
 {
     protected override void OnUpdate()
     {

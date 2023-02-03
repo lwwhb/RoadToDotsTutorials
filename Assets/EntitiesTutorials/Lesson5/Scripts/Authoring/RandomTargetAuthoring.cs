@@ -2,22 +2,25 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-struct RandomTarget : IComponentData
+namespace DOTS.DOD.LESSON5
 {
-    public float3 targetPos;
-}
-
-public class RandomTargetAuthoring : MonoBehaviour
-{
-    public class Baker : Baker<RandomTargetAuthoring>
+    struct RandomTarget : IComponentData
     {
-        public override void Bake(RandomTargetAuthoring authoring)
+        public float3 targetPos;
+    }
+
+    public class RandomTargetAuthoring : MonoBehaviour
+    {
+        public class Baker : Baker<RandomTargetAuthoring>
         {
-            var data = new RandomTarget
-            {  
-                targetPos = float3.zero
-            };
-            AddComponent(data);
+            public override void Bake(RandomTargetAuthoring authoring)
+            {
+                var data = new RandomTarget
+                {
+                    targetPos = float3.zero
+                };
+                AddComponent(data);
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ using Jobs.Common;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.Jobs;
 using UnityEngine.Pool;
@@ -39,6 +40,7 @@ namespace Jobs.DOD
         
         private float timer = 0.0f;
 
+        static readonly ProfilerMarker profilerMarker = new ProfilerMarker("CubesMarchWithJob");
         void Start()
         {
             ///创建对象池
@@ -83,24 +85,28 @@ namespace Jobs.DOD
 
         void Update()
         {
-            //job
-            //var autoRotateAndMoveJob = new AutoRotateAndMoveJob();
-            //optimize2
-            var autoRotateAndMoveJob = new AutoRotateAndMoveJobOptimize2();
-            autoRotateAndMoveJob.randTargetPosArray = randTargetPosArray;
-            autoRotateAndMoveJob.deltaTime = Time.deltaTime;
-            autoRotateAndMoveJob.moveSpeed = moveSpeed;
-            autoRotateAndMoveJob.rotateSpeed = rotateSpeed;
-            JobHandle autoRotateAndMoveJobJobHandle =
-                autoRotateAndMoveJob.Schedule(transformsAccessArray);
-            autoRotateAndMoveJobJobHandle.Complete();
-            
-            if (timer >= tickTime)
+            using (profilerMarker.Auto())
             {
-                GenerateCubes();
-                timer -= tickTime;
+                //job
+                //var autoRotateAndMoveJob = new AutoRotateAndMoveJob();
+                //optimize2
+                var autoRotateAndMoveJob = new AutoRotateAndMoveJobOptimize2();
+                autoRotateAndMoveJob.randTargetPosArray = randTargetPosArray;
+                autoRotateAndMoveJob.deltaTime = Time.deltaTime;
+                autoRotateAndMoveJob.moveSpeed = moveSpeed;
+                autoRotateAndMoveJob.rotateSpeed = rotateSpeed;
+                JobHandle autoRotateAndMoveJobJobHandle =
+                    autoRotateAndMoveJob.Schedule(transformsAccessArray);
+                autoRotateAndMoveJobJobHandle.Complete();
+
+                if (timer >= tickTime)
+                {
+                    GenerateCubes();
+                    timer -= tickTime;
+                }
+
+                timer += Time.deltaTime;
             }
-            timer += Time.deltaTime;
         }
 
         private void OnDestroy()

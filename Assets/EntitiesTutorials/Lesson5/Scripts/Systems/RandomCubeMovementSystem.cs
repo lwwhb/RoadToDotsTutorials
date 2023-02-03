@@ -1,5 +1,6 @@
 using DOTS.DOD.LESSON3;
 using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 
 namespace DOTS.DOD.LESSON5
@@ -25,11 +26,17 @@ namespace DOTS.DOD.LESSON5
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
+            EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.TempJob);
+            EntityCommandBuffer.ParallelWriter ecbParallel = ecb.AsParallelWriter();
             var job = new CubeRotateAndMoveEntityJob
             {
-                deltaTime = SystemAPI.Time.DeltaTime
+                deltaTime = SystemAPI.Time.DeltaTime,
+                ecbParallel = ecbParallel
             };
-            job.ScheduleParallel();
+            state.Dependency = job.ScheduleParallel(state.Dependency);
+            state.Dependency.Complete();
+            ecb.Playback(state.EntityManager);
+            ecb.Dispose();
         }
     }
 }
