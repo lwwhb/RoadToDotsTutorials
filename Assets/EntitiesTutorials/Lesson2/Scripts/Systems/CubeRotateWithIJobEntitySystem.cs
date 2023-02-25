@@ -5,7 +5,7 @@ using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace DOTS.DOD.LESSON3
+namespace DOTS.DOD.LESSON2
 {
     [BurstCompile]
     partial struct RotateCubeWithJobEntity : IJobEntity
