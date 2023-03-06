@@ -44,3 +44,6 @@
 
 #### 2023年2月25日
 *	Entities Lesson10完成
+
+#### 2023年3月7日
+*	Unity Editor升级到2022.2.9f1, Entities升级到pre.47, Burst升级到1.8.3
