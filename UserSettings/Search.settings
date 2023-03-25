@@ -7,6 +7,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.310DEAF1" = "MaterialOver"
+	"OpenInspectorPreview.310DEAF1" = "0"
+	"currentGroup.310DEAF1" = "menu"
 }
 providers = {
 	adb = {
@@ -53,11 +56,16 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"M"
+	"Stacktrace"
+	"a"
+	"Gyroscope."
 ]
 searchItemFavorites = [
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
+hideTabs = false
 expandedQueries = [
 ]
 queryBuilder = false

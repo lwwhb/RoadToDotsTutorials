@@ -50,3 +50,6 @@
 
 #### 2023年3月14日
 *	Entities Graphics Lesson 0 Lesson 1 完成
+
+#### 2023年3月26日
+*	Entities Graphics Lesson 2 完成

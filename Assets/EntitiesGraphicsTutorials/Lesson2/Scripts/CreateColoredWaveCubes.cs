@@ -4,18 +4,13 @@ using Unity.Entities;
 using Unity.Entities.Graphics;
 using Unity.Jobs;
 using Unity.Mathematics;
-using Unity.Profiling;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace DOTS.DOD.GRAPHICS.LESSON1
+namespace DOTS.DOD.GRAPHICS.LESSON2
 {
-    public class GraphicsLesson1SystemGroup : SceneSystemGroup
-    {
-        protected override string SceneName => "CreateWaveCubesRuntime";
-    }
     [BurstCompile]
     public struct SpawnJob : IJobParallelFor
     {
@@ -27,10 +22,10 @@ namespace DOTS.DOD.GRAPHICS.LESSON1
         public void Execute(int index)
         {
             var e = Ecb.Instantiate(index, prototype);
-            Ecb.SetComponent(index, e, new LocalToWorld { Value = ComputeTransform(index) });
+            Ecb.SetComponent(index, e, new LocalToWorld { Value = ComputeTransform(index, e) });
         }
 
-        public float4x4 ComputeTransform(int index)
+        public float4x4 ComputeTransform(int index, Entity e)
         {
             int x = index % (halfCountX * 2) - halfCountX;
             int z = index / (halfCountX * 2) - halfCountZ;
@@ -38,43 +33,19 @@ namespace DOTS.DOD.GRAPHICS.LESSON1
                 new float3(x*1.1f, 0, z*1.1f),
                 quaternion.identity,
                 new float3(1));
+            if (math.sqrt(x*x + z*z) > 30)
+                Ecb.AddComponent<DisableRendering>(index, e);
             return M;
         }
     }
-    
-    [BurstCompile]
-    partial struct WaveCubeEntityJob : IJobEntity
-    {
-        [ReadOnly] public float elapsedTime;
-        void Execute(ref LocalToWorld transform)
-        {
-            var distance = math.distance(transform.Position, float3.zero);
-            float3 newPos = transform.Position + new float3(0, 1, 0) * math.sin(elapsedTime * 3f + distance * 0.2f);
-            transform.Value = float4x4.Translate(newPos);
-        }
-    }
-    [RequireMatchingQueriesForUpdate]
-    [UpdateInGroup(typeof(GraphicsLesson1SystemGroup))]
-    public partial struct WaveCubesMoveSystem : ISystem
-    {
-        static readonly ProfilerMarker profilerMarker = new ProfilerMarker("WaveCubeEntityJobs");
-        [BurstCompile]
-        public void OnUpdate(ref SystemState state)
-        {
-            using (profilerMarker.Auto())
-            {
-                var job = new WaveCubeEntityJob() { elapsedTime = (float)SystemAPI.Time.ElapsedTime };
-                job.ScheduleParallel();
-            }
-        }
-    }
-    
-    public class CreateWaveCubesWithMonobehavior : MonoBehaviour
+    public class CreateColoredWaveCubes : MonoBehaviour
     {
         [Range(10, 100)] public int xHalfCount = 40;
         [Range(10, 100)] public int zHalfCount = 40;
         public Mesh mesh;
         public Material material;
+        public Mesh[] changeMeshes;
+        public Material[] changeMaterials;
         
         void Start()
         {
@@ -101,7 +72,16 @@ namespace DOTS.DOD.GRAPHICS.LESSON1
                 renderMeshDescription,
                 renderMeshArray,
                 MaterialMeshInfo.FromRenderMeshArrayIndices(0, 0));
-            
+            entityManager.AddComponentData(prototype, new CustomColor { customColor = new float4(0, 1, 1, 1) });
+            entityManager.AddComponentData(prototype, new CustomMeshAndMaterial
+            {
+                sphere = changeMeshes[0],
+                capsule = changeMeshes[1],
+                cylinder = changeMeshes[2],
+                red = changeMaterials[0],
+                green = changeMaterials[1],
+                blue = changeMaterials[2]
+            });
             var spawnJob = new SpawnJob
             {
                 prototype = prototype,
