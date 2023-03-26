@@ -63,8 +63,8 @@ namespace DOTS.DOD.LESSON7
                     randPos = randomSingleton.ValueRW.random.NextFloat3(-generator.generatorAreaSize * 0.5f,
                         generator.generatorAreaSize * 0.5f);
                     var position = generator.generatorAreaPos + new float3(randPos.x, 0, randPos.z);
-                    var transform = SystemAPI.GetAspectRW<TransformAspect>(cube);
-                    transform.WorldPosition = position;
+                    var transform = SystemAPI.GetComponentRW<LocalTransform>(cube, false);
+                    transform.ValueRW.Position = position;
                 }
                 cubes.Dispose();
                 totalCubes += generator.generationNumPerTicktime;

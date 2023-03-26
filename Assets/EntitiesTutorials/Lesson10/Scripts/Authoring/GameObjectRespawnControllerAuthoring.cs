@@ -18,12 +18,13 @@ namespace DOTS.DOD.LESSON10
         {
             public override void Bake(GameObjectRespawnControllerAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var data = new GameObjectRespawnController
                 {
                     timer = authoring.timer,
                     prefab = authoring.spawners
                 };
-                AddComponentObject(data);
+                AddComponentObject(entity, data);
             }
         }
     }

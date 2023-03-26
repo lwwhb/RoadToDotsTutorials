@@ -35,11 +35,12 @@ namespace DOTS.DOD.LESSON8
         {
             public override void Bake(MultiCubesGeneratorAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new MultiCubesGenerator
                 {
-                    redCubeProtoType = GetEntity(authoring.redCubePrefab),
-                    greenCubeProtoType = GetEntity(authoring.greenCubePrefab),
-                    blueCubeProtoType = GetEntity(authoring.blueCubePrefab),
+                    redCubeProtoType = GetEntity(authoring.redCubePrefab, TransformUsageFlags.Dynamic),
+                    greenCubeProtoType = GetEntity(authoring.greenCubePrefab, TransformUsageFlags.Dynamic),
+                    blueCubeProtoType = GetEntity(authoring.blueCubePrefab, TransformUsageFlags.Dynamic),
                     generationTotalNum = authoring.generationTotalNum,
                     generationNumPerTicktime = authoring.generationNumPerTicktime,
                     tickTime = authoring.tickTime,
@@ -48,7 +49,7 @@ namespace DOTS.DOD.LESSON8
                     blueCubeGeneratorPos = authoring.blueCubeGeneratorPos,
                     cubeTargetPos = authoring.cubeTargetPos
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

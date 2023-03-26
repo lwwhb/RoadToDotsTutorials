@@ -13,8 +13,9 @@ namespace DOTS.DOD.LESSON1
         {
             public override void Bake(BlueCubeTagAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var blueCube = new BlueCubeTag();
-                AddComponent(blueCube);
+                AddComponent(entity, blueCube);
             }
         }
     }

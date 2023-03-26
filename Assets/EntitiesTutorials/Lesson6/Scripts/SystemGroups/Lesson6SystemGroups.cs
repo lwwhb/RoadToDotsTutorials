@@ -1,7 +1,7 @@
 
 namespace DOTS.DOD.LESSON6
 {
-    public class Lesson6SystemGroups : AuthoringSceneSystemGroup
+    public partial class Lesson6SystemGroups : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "MoveCubesWithWayPoints";
     }

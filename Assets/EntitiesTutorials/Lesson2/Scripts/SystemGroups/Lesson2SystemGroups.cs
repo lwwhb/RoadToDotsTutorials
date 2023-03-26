@@ -1,11 +1,11 @@
 namespace DOTS.DOD.LESSON2
 {
-    public class CubeRotateWithIJobEntitySystemGroup : AuthoringSceneSystemGroup
+    public partial class CubeRotateWithIJobEntitySystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "RotateCubeWithIJobEntity";
     }
     
-    public class CubeRotateWithIJobChunkSystemGroup : AuthoringSceneSystemGroup
+    public partial class CubeRotateWithIJobChunkSystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "RotateCubeWithIJobChunk";
     }

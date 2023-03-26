@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace DOTS.DOD
 {
-    public abstract class AuthoringSceneSystemGroup : ComponentSystemGroup
+    public abstract partial class AuthoringSceneSystemGroup : ComponentSystemGroup
     {
         private bool initialized;
         protected override void OnCreate()

@@ -26,15 +26,16 @@ namespace DOTS.DOD.LESSON5
         {
             public override void Bake(RandomCubeGeneratorAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var data = new RandomCubeGenerator
                 {
-                    cubeProtoType = authoring.useScheduleParallel ? GetEntity(authoring.redCubePrefab) : GetEntity(authoring.blueCubePrefab),
+                    cubeProtoType = authoring.useScheduleParallel ? GetEntity(authoring.redCubePrefab, TransformUsageFlags.Dynamic) : GetEntity(authoring.blueCubePrefab, TransformUsageFlags.Dynamic),
                     generationTotalNum = authoring.generationTotalNum,
                     generationNumPerTicktime = authoring.generationNumPerTicktime,
                     tickTime = authoring.tickTime,
                     useScheduleParallel = authoring.useScheduleParallel
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

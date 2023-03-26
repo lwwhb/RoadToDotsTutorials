@@ -17,12 +17,13 @@ namespace DOTS.DOD.LESSON3
         {
             public override void Bake(RotateAndMoveSpeedAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var data = new RotateAndMoveSpeed
                 {
                     rotateSpeed = math.radians(authoring.rotateSpeed),
                     moveSpeed = authoring.moveSpeed
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

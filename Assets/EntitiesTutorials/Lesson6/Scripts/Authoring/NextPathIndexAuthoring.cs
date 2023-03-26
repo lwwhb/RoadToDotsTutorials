@@ -16,11 +16,12 @@ namespace DOTS.DOD.LESSON6
         {
             public override void Bake(NextPathIndexAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new NextPathIndex
                 {
                     nextIndex = authoring.nextIndex
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

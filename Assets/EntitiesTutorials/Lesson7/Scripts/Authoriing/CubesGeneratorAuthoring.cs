@@ -35,9 +35,10 @@ namespace DOTS.DOD.LESSON7
         {
             public override void Bake(CubesGeneratorAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new CubesGenerator
                 {
-                    cubeProtoType = GetEntity(authoring.cubePrefab),
+                    cubeProtoType = GetEntity(authoring.cubePrefab, TransformUsageFlags.Dynamic),
                     generationTotalNum = authoring.generationTotalNum,
                     generationNumPerTicktime = authoring.generationNumPerTicktime,
                     tickTime = authoring.tickTime,
@@ -49,7 +50,7 @@ namespace DOTS.DOD.LESSON7
                     moveSpeed = authoring.moveSpeed
 
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

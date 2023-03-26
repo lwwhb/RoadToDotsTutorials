@@ -19,7 +19,8 @@ namespace DOTS.DOD.LESSON6
         {
             public override void Bake(WayPointAuthoring authoring)
             {
-                DynamicBuffer<WayPoint> waypoints = AddBuffer<WayPoint>();
+                var entity = GetEntity(TransformUsageFlags.None);
+                DynamicBuffer<WayPoint> waypoints = AddBuffer<WayPoint>(entity);
                 waypoints.Length = authoring.wayPoints.Count;
                 for (int i = 0; i < authoring.wayPoints.Count; i++)
                 {

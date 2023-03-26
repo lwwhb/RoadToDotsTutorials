@@ -12,7 +12,7 @@ namespace DOTS.DOD.LESSON11
         public void OnCreate(ref SystemState state)
         {
             //如果测试这段代码请开启下面代码
-            /*var entity1 = state.EntityManager.CreateEntity();
+            var entity1 = state.EntityManager.CreateEntity();
             state.EntityManager.AddComponentData<GeneralComponent>(entity1, new GeneralComponent{ num = 0});
             state.EntityManager.AddChunkComponentData<ChunkComponentA>(entity1);
             
@@ -26,7 +26,7 @@ namespace DOTS.DOD.LESSON11
             
             var entity3 = state.EntityManager.CreateEntity();
             state.EntityManager.AddChunkComponentData<ChunkComponentA>(entity3);
-            state.EntityManager.AddChunkComponentData<ChunkComponentB>(entity3);*/
+            state.EntityManager.AddChunkComponentData<ChunkComponentB>(entity3);
             
             //var entity4 = state.EntityManager.CreateEntity();
             //state.EntityManager.AddChunkComponentData<ChunkComponentAB>(entity4);

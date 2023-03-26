@@ -2,12 +2,12 @@ using DOTS.DOD;
 
 namespace DOTS.DOD.LESSON10
 {
-    public class EntityRespawnSystemGroup : AuthoringSceneSystemGroup
+    public partial class EntityRespawnSystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "EntityRespawnByCleanupComponent";
     }
     
-    public class GameObjectRespawnSystemGroup : AuthoringSceneSystemGroup
+    public partial class GameObjectRespawnSystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "GameObjectRespawnByScript";
     }

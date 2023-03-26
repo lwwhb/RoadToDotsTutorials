@@ -13,9 +13,10 @@ namespace DOTS.DOD.LESSON4
         {
             public override void Bake(WaveCubeGeneratorAuthoring authoring)
             {
-                AddComponent(new WaveCubeGenerator
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(entity, new WaveCubeGenerator
                 {
-                    cubeProtoType = GetEntity(authoring.cubePrefab),
+                    cubeProtoType = GetEntity(authoring.cubePrefab, TransformUsageFlags.Dynamic),
                     halfCountX = authoring.xHalfCount,
                     halfCountZ = authoring.zHalfCount
                 });

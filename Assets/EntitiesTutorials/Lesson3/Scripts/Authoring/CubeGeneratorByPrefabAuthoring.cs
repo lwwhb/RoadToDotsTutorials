@@ -18,9 +18,9 @@ namespace DOTS.DOD.LESSON3
         {
             public override void Bake(CubeGeneratorByPrefabAuthoring authoring)
             {
-                AddComponent(new CubeGeneratorByPrefab
+                AddComponent(GetEntity(TransformUsageFlags.Dynamic), new CubeGeneratorByPrefab
                 {
-                    cubeEntityProtoType = GetEntity(authoring.cubePrefab),
+                    cubeEntityProtoType = GetEntity(authoring.cubePrefab, TransformUsageFlags.None),
                     cubeCount = authoring.CubeCount
                 });
             }

@@ -1,6 +1,6 @@
 namespace DOTS.DOD.LESSON1
 {
-    public class RotateCubesFilterSystemGroup : AuthoringSceneSystemGroup
+    public partial class RotateCubesFilterSystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "RotateCubesFilter";
     }

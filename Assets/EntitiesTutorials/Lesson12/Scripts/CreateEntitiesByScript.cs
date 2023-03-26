@@ -71,8 +71,8 @@ namespace DOTS.DOD.LESSON8
             foreach (var cube in cubes)
             {
                 var position = new float3((count - generator.cubeCount*0.5f)*1.1f , 0, 0);
-                var transform = SystemAPI.GetAspectRW<TransformAspect>(cube);
-                transform.LocalPosition = position;
+                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube, false);
+                transform.ValueRW.Position = position;
                 count++;
             }
             cubes.Dispose();

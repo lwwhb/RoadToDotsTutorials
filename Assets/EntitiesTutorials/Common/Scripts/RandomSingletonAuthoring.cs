@@ -16,11 +16,12 @@ namespace DOTS.DOD
         {
             public override void Bake(RandomSingletonAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new RandomSingleton
                 {
                     random = new Random(RandomSingletonAuthoring.Instance.seed)
                 };
-                AddComponent(data);
+                AddComponent(entity,data);
             }
         }
     }

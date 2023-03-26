@@ -15,11 +15,12 @@ namespace DOTS.DOD.LESSON5
         {
             public override void Bake(RandomTargetAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new RandomTarget
                 {
                     targetPos = float3.zero
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

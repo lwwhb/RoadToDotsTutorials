@@ -12,7 +12,7 @@ using UnityEngine.Rendering;
 
 namespace DOTS.DOD.GRAPHICS.LESSON1
 {
-    public class GraphicsLesson1SystemGroup : SceneSystemGroup
+    public partial class GraphicsLesson1SystemGroup : SceneSystemGroup
     {
         protected override string SceneName => "CreateWaveCubesRuntime";
     }

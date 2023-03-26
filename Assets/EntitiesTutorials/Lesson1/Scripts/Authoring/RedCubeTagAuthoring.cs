@@ -14,8 +14,9 @@ namespace DOTS.DOD.LESSON1
         {
             public override void Bake(RedCubeTagAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var redCube = new RedCubeTag();
-                AddComponent(redCube);
+                AddComponent(entity, redCube);
             }
         }
     }

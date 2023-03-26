@@ -19,13 +19,14 @@ namespace DOTS.DOD.LESSON9
         {
             public override void Bake(SpawnerGeneratorAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new SpawnerGenerator
                 {
-                    spawnerProtoType = GetEntity(authoring.spawnerPrefab),
+                    spawnerProtoType = GetEntity(authoring.spawnerPrefab, TransformUsageFlags.Dynamic),
                     halfCountX = authoring.xHalfCount,
                     halfCountZ = authoring.zHalfCount
                 };
-                AddComponent(data);
+                AddComponent(entity, data);
             }
         }
     }

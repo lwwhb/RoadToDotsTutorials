@@ -24,12 +24,13 @@ namespace DOTS.DOD.LESSON10
         {
             public override void Bake(RespawnControllerAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 var data = new RespawnController
                 {
                     timer = authoring.timer
                 };
-                AddComponent(data);
-                var buffer = AddBuffer<PrefabBufferElement>();
+                AddComponent(entity, data);
+                var buffer = AddBuffer<PrefabBufferElement>(entity);
                 for (int i = 0; i < authoring.spawners.Length; i++)
                 {
                     var elem = new PrefabBufferElement

@@ -12,8 +12,9 @@ namespace DOTS.DOD.LESSON1
         {
             public override void Bake(GreenCubeTagAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
                 var greenTag = new GreenCubeTag();
-                AddComponent(greenTag);
+                AddComponent(entity, greenTag);
             }
         }
     }

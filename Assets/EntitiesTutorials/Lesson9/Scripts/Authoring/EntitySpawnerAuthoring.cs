@@ -95,10 +95,11 @@ namespace DOTS.DOD.LESSON9
         {
             public override void Bake(EntitySpawnerAuthoring authoring)
             {
+                var entity = GetEntity(TransformUsageFlags.None);
                 //---使用AllComponentData
                 /*var data = new EntitySpawnerAllComponentData
                 {  
-                    entityProtoType = GetEntity(authoring.protoTypePrefab),
+                    entityProtoType = GetEntity(authoring.protoTypePrefab, TransformUsageFlags.Dynamic),
                     buildingType = authoring.buildingType,
                     level = authoring.level,
                     tickTime = authoring.tickTime,
@@ -116,7 +117,7 @@ namespace DOTS.DOD.LESSON9
                 //---
 
                 //---使用BlobAssets
-                AddComponent(new EntitySpawnerComponentData
+                AddComponent(entity, new EntitySpawnerComponentData
                 {
                     currentlife = authoring.maxLife
                 });
@@ -124,7 +125,7 @@ namespace DOTS.DOD.LESSON9
                 var settings = CreateSpawnerBlobSettings(authoring);
                 AddBlobAsset(ref settings, out var hash);
 
-                AddComponent(new EntitySpawnerSettings
+                AddComponent(entity, new EntitySpawnerSettings
                 {
                     blobSettings = settings
                 });
@@ -137,7 +138,7 @@ namespace DOTS.DOD.LESSON9
 
                 ref EntitySpawnerBlobData spawnerBlobData = ref builder.ConstructRoot<EntitySpawnerBlobData>();
 
-                spawnerBlobData.entityProtoType = GetEntity(authoring.protoTypePrefab);
+                spawnerBlobData.entityProtoType = GetEntity(authoring.protoTypePrefab, TransformUsageFlags.Dynamic);
                 spawnerBlobData.buildingType = authoring.buildingType;
                 spawnerBlobData.level = authoring.level;
                 spawnerBlobData.tickTime = authoring.tickTime;

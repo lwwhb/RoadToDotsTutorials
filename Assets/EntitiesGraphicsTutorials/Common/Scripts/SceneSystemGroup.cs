@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace DOTS.DOD.GRAPHICS
 {
-    public abstract class SceneSystemGroup : ComponentSystemGroup
+    public abstract partial class SceneSystemGroup : ComponentSystemGroup
     {
         private bool initialized;
         protected override void OnCreate()

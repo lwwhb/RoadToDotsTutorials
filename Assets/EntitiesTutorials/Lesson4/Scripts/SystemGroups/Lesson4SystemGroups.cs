@@ -1,6 +1,6 @@
 namespace DOTS.DOD.LESSON4
 {
-    public class WaveCubesWithDotsSystemGroup : AuthoringSceneSystemGroup
+    public partial class WaveCubesWithDotsSystemGroup : AuthoringSceneSystemGroup
     {
         protected override string AuthoringSceneName => "WaveCubesWithDots";
     }
