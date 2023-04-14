@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff19322a-5c1e-4d48-af90-f04f2414c420" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes/BatchRendererGroup.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes/BatchRendererGroup.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes/BatchRendererGroup.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes/BatchRendererGroup/GlobalVolumeProfile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scenes/BatchRendererGroup/GlobalVolumeProfile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scripts/BatchRendererGroupSetup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson3/Scripts/BatchRendererGroupSetup.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials.dir/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/.gitignore" beforeDir="false" />
@@ -16,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson2/Scenes/WaveCubesWithColorChange.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson2/Scenes/WaveCubesWithColorChange.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson2/Scripts/CreateColoredWaveCubes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EntitiesGraphicsTutorials/Lesson2/Scripts/CreateColoredWaveCubes.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
@@ -129,7 +141,7 @@
       <workItem from="1681039988529" duration="598000" />
       <workItem from="1681267233512" duration="34000" />
       <workItem from="1681267422530" duration="20936000" />
-      <workItem from="1681448535014" duration="4935000" />
+      <workItem from="1681448535014" duration="4937000" />
     </task>
     <servers />
   </component>
