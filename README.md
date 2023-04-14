@@ -56,3 +56,7 @@
 
 #### 2023年3月27日
 *	Update Entities to pre.65, Editor update to 2022.2.12f1
+
+#### 2023年4月14日
+*	Entities Graphics Lesson3 完成
+

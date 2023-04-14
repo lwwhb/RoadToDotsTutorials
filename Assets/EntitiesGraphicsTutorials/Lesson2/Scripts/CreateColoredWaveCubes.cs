@@ -17,6 +17,7 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
         public Entity prototype;
         public int halfCountX;
         public int halfCountZ;
+        public bool useDisableRendering;
         public EntityCommandBuffer.ParallelWriter Ecb;
 
         public void Execute(int index)
@@ -33,7 +34,7 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
                 new float3(x*1.1f, 0, z*1.1f),
                 quaternion.identity,
                 new float3(1));
-            if (math.sqrt(x*x + z*z) > 30)
+            if (useDisableRendering && math.sqrt(x*x + z*z) > 30)
                 Ecb.AddComponent<DisableRendering>(index, e);
             return M;
         }
@@ -42,6 +43,7 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
     {
         [Range(10, 100)] public int xHalfCount = 40;
         [Range(10, 100)] public int zHalfCount = 40;
+        public bool useDisableRendering = false;
         public Mesh mesh;
         public Material material;
         public Mesh[] changeMeshes;
@@ -51,7 +53,6 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
         {
             var world = World.DefaultGameObjectInjectionWorld;
             var entityManager = world.EntityManager;
-
             EntityCommandBuffer ecbJob = new EntityCommandBuffer(Allocator.TempJob);
 
             var filterSettings = RenderFilterSettings.Default;
@@ -64,7 +65,7 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
                 FilterSettings = filterSettings,
                 LightProbeUsage = LightProbeUsage.Off,
             };
-
+  
             var prototype = entityManager.CreateEntity();
             RenderMeshUtility.AddComponents(
                 prototype,
@@ -75,7 +76,7 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
             entityManager.AddComponentData(prototype, new CustomColor { customColor = new float4(0, 1, 1, 1) });
             entityManager.AddComponentData(prototype, new CustomMeshAndMaterial
             {
-                sphere = changeMeshes[0],
+                sphere = changeMeshes[0],   
                 capsule = changeMeshes[1],
                 cylinder = changeMeshes[2],
                 red = changeMaterials[0],
@@ -87,9 +88,9 @@ namespace DOTS.DOD.GRAPHICS.LESSON2
                 prototype = prototype,
                 Ecb = ecbJob.AsParallelWriter(),
                 halfCountX = xHalfCount,
-                halfCountZ = zHalfCount
+                halfCountZ = zHalfCount,
+                useDisableRendering = useDisableRendering
             };
-
             var spawnHandle = spawnJob.Schedule(4*xHalfCount*zHalfCount, 128);
             spawnHandle.Complete();
 

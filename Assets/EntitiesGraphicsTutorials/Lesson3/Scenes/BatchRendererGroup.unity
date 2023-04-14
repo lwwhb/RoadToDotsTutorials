@@ -387,22 +387,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 961739749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1073fd0b2043a445180fce790d094af8, type: 3}
+  m_Script: {fileID: 11500000, guid: dd2334328bf2f433e9bee1cd04822773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xHalfCount: 40
-  zHalfCount: 40
-  useDisableRendering: 0
+  xHalfCount: 100
+  zHalfCount: 100
+  cullTest: 0
+  motionVectorTest: 0
+  spacingFactor: 1.1
+  jobsPerBatch: 1
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   material: {fileID: 2100000, guid: 4b4c4c59c92504d299ec6fb569979e80, type: 2}
-  changeMeshes:
-  - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  - {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-  changeMaterials:
-  - {fileID: 2100000, guid: c6117b8730235419da902b8810fae512, type: 2}
-  - {fileID: 2100000, guid: fb46646ec86f543d6a4ea127f4617a02, type: 2}
-  - {fileID: 2100000, guid: 3b977843ab1364bb79d74b920ab81dd3, type: 2}
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +431,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 6264993a577514f6688e041d1c43bb3a, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 563a4d335a067497995395c28216f786, type: 2}
 --- !u!4 &1160234427
 Transform:
   m_ObjectHideFlags: 0
