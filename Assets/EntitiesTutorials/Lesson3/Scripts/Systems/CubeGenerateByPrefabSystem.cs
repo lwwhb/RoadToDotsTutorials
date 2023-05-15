@@ -38,7 +38,7 @@ namespace DOTS.DOD.LESSON3
                     moveSpeed = count
                 });
                 var position = new float3((count - generator.cubeCount * 0.5f) * 1.2f, 0, 0);
-                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube, false);
+                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube);
                 transform.ValueRW.Position = position;
                 count++;
             }

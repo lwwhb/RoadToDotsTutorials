@@ -62,7 +62,7 @@ namespace DOTS.PHYSICS.LESSON0
                 int z = temp / (int)(generator.gridNum.x) - (int)generator.gridNum.z;
                 int x = temp % (int)(generator.gridNum.x) - (int)generator.gridNum.z;
                 var position = new float3(x, y, z)*generator.space;
-                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube, false);
+                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube);
                 transform.ValueRW.Position = position;
                 count++;
             }

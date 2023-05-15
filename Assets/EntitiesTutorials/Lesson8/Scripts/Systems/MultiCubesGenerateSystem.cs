@@ -77,13 +77,13 @@ namespace DOTS.DOD.LESSON8
                     group = 2
                 });
                 
-                var redCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(redCube, false);
+                var redCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(redCube);
                 redCubeTransform.ValueRW.Position = generator.redCubeGeneratorPos;
                 
-                var greenCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(greenCube, false);
+                var greenCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(greenCube);
                 greenCubeTransform.ValueRW.Position = generator.greenCubeGeneratorPos;
                 
-                var blueCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(blueCube, false);
+                var blueCubeTransform = SystemAPI.GetComponentRW<LocalTransform>(blueCube);
                 blueCubeTransform.ValueRW.Position = generator.blueCubeGeneratorPos;
 
                 totalCubes += 3;

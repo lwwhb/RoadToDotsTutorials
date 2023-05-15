@@ -36,7 +36,7 @@ namespace DOTS.DOD.LESSON4
                 int z = count / (generator.halfCountX * 2) - generator.halfCountZ;
                 var position = new float3(x*1.1f, 0, z*1.1f);
                 
-                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube,false);
+                var transform = SystemAPI.GetComponentRW<LocalTransform>(cube);
                 transform.ValueRW.Position = position;
                 count++;
             }

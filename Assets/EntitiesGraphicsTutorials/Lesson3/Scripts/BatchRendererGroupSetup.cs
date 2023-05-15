@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[BurstCompile]
 public unsafe class BatchRendererGroupSetup : MonoBehaviour
 {
     [Range(1, 100)] public int xHalfCount = 40;
