@@ -6,30 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ff19322a-5c1e-4d48-af90-f04f2414c420" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Common/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Common/Materials/White.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/GlobalVolumeProfile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/GlobalVolumeProfile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/Volume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/Volume.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/VolumeProfileAsset.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scenes/CreateEntitiesByScripts/VolumeProfileAsset.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/CreateEntitiesByArchetype.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/CreateEntitiesByArchetype.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/CreateEntitiesByScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/CreateEntitiesByScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/SystemGroups.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/SystemGroups/Lesson4SceneSystemGroups.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EntitiesTutorials/Lesson12/Scripts/SystemGroups/Lesson4SceneSystemGroups.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityPhysicsTutorials/Lesson0/Scenes/PhysicsSubScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityPhysicsTutorials/Lesson0/Scenes/PhysicsSubScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
@@ -42,7 +21,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/UnityPhysicsTutorials/Lesson1/Scripts/Authoring/PhysicsBodyGeneratorAuthoring.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityPhysicsTutorials/Lesson1/Scripts/SystemGroups/UnityPhysicsLesson1SystemGroup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnityPhysicsTutorials/Lesson1/Scripts/Systems/CreatePhysicsBodySystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@1.0.0-pre.65/Unity.Entities/ISystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.8/Unity.Physics/Collision/RigidBody/RigidBody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.8/Unity.Physics/ECS/Base/Aspects/RigidBodyAspect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.8/Unity.Physics/ECS/Base/Components/PhysicsComponents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/259299276808b41e0142bf74c18d9755/Message/MessageTemp/22ea80de7b7f661a271227f115cfa02b/File/UIDrawCall.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -83,7 +64,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.2.17f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.2.19f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -91,7 +72,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.2.17f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.2.19f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -149,6 +130,8 @@
       <workItem from="1683621006339" duration="307000" />
       <workItem from="1683621440700" duration="2321000" />
       <workItem from="1684115045036" duration="15074000" />
+      <workItem from="1684597094086" duration="770000" />
+      <workItem from="1684603616077" duration="1476000" />
     </task>
     <servers />
   </component>
