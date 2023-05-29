@@ -245,7 +245,7 @@ MonoBehaviour:
   AngularSpeed: 1
   MoveDirection:
     x: 0
-    y: -6
+    y: -1
     z: 0
 --- !u!1 &1559848010
 GameObject:
@@ -296,9 +296,9 @@ MonoBehaviour:
   - {fileID: 5957084244671352685, guid: 267104d37064a43b9bd5421a0fe1ff66, type: 3}
   - {fileID: 6425363739540994057, guid: 73c07869a22ee431aa2278f4ae683e84, type: 3}
   gridNum:
-  - {x: 10, y: 5, z: 10}
-  - {x: 10, y: 5, z: 10}
-  - {x: 10, y: 5, z: 10}
+  - {x: 10, y: 10, z: 10}
+  - {x: 10, y: 10, z: 10}
+  - {x: 10, y: 10, z: 10}
   space: 1.1
 --- !u!1 &1889165624
 GameObject:

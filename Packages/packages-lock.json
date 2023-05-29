@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "com.havok.physics": {
+      "version": "1.0.10",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.8.4",
+        "com.unity.collections": "2.1.4",
+        "com.unity.entities": "1.0.10",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.physics": "1.0.10"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.4",
       "depth": 0,

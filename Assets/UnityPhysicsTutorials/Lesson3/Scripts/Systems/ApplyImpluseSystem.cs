@@ -30,7 +30,7 @@ namespace DOTS.PHYSICS.LESSON3
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            state.Enabled = true;
+            //state.Enabled = true;
             state.RequireForUpdate<TornadoComponent>();
             state.RequireForUpdate<SimulationSingleton>();
         }

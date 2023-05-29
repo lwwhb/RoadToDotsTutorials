@@ -31,7 +31,7 @@ namespace DOTS.PHYSICS.LESSON3
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            //state.Enabled = false;
+            state.Enabled = false;
             state.RequireForUpdate<SimulationSingleton>();
             state.RequireForUpdate<PhysicsWorldSingleton>();
         }

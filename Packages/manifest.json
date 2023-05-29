@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.havok.physics": "1.0.10",
     "com.unity.burst": "1.8.4",
     "com.unity.collab-proxy": "2.0.4",
     "com.unity.entities": "1.0.10",
