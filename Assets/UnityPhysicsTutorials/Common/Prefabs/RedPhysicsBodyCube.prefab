@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1489004003517370098}
   - component: {fileID: 8841179350725415663}
   m_Layer: 0
-  m_Name: PhysicsBodyCube
+  m_Name: RedPhysicsBodyCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
