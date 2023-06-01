@@ -72,3 +72,6 @@
 
 #### 2023年5月29日
 *	Unity Physics Lesson3 完成
+
+#### 2023年6月1日
+*	Upgrade to Unity 2022.3.0 完成
