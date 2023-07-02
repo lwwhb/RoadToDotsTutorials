@@ -10,10 +10,9 @@ namespace DOTS.DOD.LESSON4
     partial struct WaveCubeEntityJob : IJobEntity
     {
         [ReadOnly] public float elapsedTime;
-        void Execute(ref LocalTransform transform)
+        void Execute(WaveCubeAspect aspect)
         {
-            var distance = math.distance(transform.Position, float3.zero);
-            transform.Position += new float3(0, 1, 0) * math.sin(elapsedTime * 3f + distance * 0.2f);
+            aspect.WaveCubes(elapsedTime);
         }
     }
 }

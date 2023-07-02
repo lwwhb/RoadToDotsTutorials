@@ -8,4 +8,8 @@ namespace DOTS.DOD.LESSON4
         public int halfCountX;
         public int halfCountZ;
     }
+    
+    struct WaveCubeTag : IComponentData
+    {
+    }
 }

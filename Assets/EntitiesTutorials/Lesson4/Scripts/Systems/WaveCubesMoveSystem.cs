@@ -5,6 +5,7 @@ using Unity.Profiling;
 namespace DOTS.DOD.LESSON4
 {
     [BurstCompile]
+    [RequireMatchingQueriesForUpdate]
     [UpdateInGroup(typeof(WaveCubesWithDotsSystemGroup))]
     [UpdateAfter(typeof(WaveCubesGenerateSystem))]
     public partial struct WaveCubesMoveSystem : ISystem
@@ -13,6 +14,7 @@ namespace DOTS.DOD.LESSON4
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
+            state.RequireForUpdate<WaveCubeTag>();
         }
         
         [BurstCompile]

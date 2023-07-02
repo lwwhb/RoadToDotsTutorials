@@ -47,15 +47,16 @@ namespace DOTS.PHYSICS.LESSON3
             }.Schedule(simulation, state.Dependency);
             state.Dependency.Complete();
             Debug.Log("Current Frame Collision Events Number: " + numCollisionEvents.Value);
+            numCollisionEvents.Dispose();
             
             NativeReference<int> numTriggerEvents = new NativeReference<int>(0, Allocator.TempJob);
-
             state.Dependency = new CountNumTriggerEvents
             {
                 NumTriggerEvents = numTriggerEvents
             }.Schedule(simulation, state.Dependency);
             state.Dependency.Complete();
             Debug.Log("Current Frame Trigger Events Number: " + numTriggerEvents.Value);
+            numTriggerEvents.Dispose();
         }
     }
 }

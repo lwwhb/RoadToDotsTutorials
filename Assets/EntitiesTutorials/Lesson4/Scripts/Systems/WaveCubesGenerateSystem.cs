@@ -6,6 +6,7 @@ using Unity.Transforms;
 namespace DOTS.DOD.LESSON4
 {
     [BurstCompile]
+    [RequireMatchingQueriesForUpdate]
     [UpdateInGroup(typeof(WaveCubesWithDotsSystemGroup))]
     public partial struct WaveCubesGenerateSystem : ISystem
     {
@@ -32,10 +33,10 @@ namespace DOTS.DOD.LESSON4
             int count = 0;
             foreach (var cube in cubes)
             {
+                state.EntityManager.AddComponent<WaveCubeTag>(cube);
                 int x = count % (generator.halfCountX * 2) - generator.halfCountX;
                 int z = count / (generator.halfCountX * 2) - generator.halfCountZ;
                 var position = new float3(x*1.1f, 0, z*1.1f);
-                
                 var transform = SystemAPI.GetComponentRW<LocalTransform>(cube);
                 transform.ValueRW.Position = position;
                 count++;

@@ -23,11 +23,11 @@ namespace DOTS.PHYSICS.LESSON3
         public void OnUpdate(ref SystemState state)
         {
             var generator = SystemAPI.GetSingleton<MultiPhysicsBodyGenerator>();
-            var redCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.redGridNums.x*generator.redGridNums.y*generator.redGridNums.z), Allocator.TempJob);
+            var redCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.redGridNums.x*generator.redGridNums.y*generator.redGridNums.z), Allocator.Temp);
             state.EntityManager.Instantiate(generator.redCubeEntityProtoTypes, redCubes);
-            var greenCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.greenGridNums.x*generator.greenGridNums.y*generator.greenGridNums.z), Allocator.TempJob);
+            var greenCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.greenGridNums.x*generator.greenGridNums.y*generator.greenGridNums.z), Allocator.Temp);
             state.EntityManager.Instantiate(generator.greenCubeEntityProtoTypes, greenCubes);
-            var blueCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.blueGridNums.x*generator.blueGridNums.y*generator.blueGridNums.z), Allocator.TempJob);
+            var blueCubes = CollectionHelper.CreateNativeArray<Entity>((int)(generator.blueGridNums.x*generator.blueGridNums.y*generator.blueGridNums.z), Allocator.Temp);
             state.EntityManager.Instantiate(generator.blueCubeEntityProtoTypes, blueCubes);
             int count = 0;
             foreach (var cube in redCubes)
