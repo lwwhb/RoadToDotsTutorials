@@ -1,6 +1,7 @@
 using DOTS.DOD;
 using Unity.Burst;
 using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -56,7 +57,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
             RefRW<RandomSingleton> random = SystemAPI.GetSingletonRW<RandomSingleton>();
             int c =  (int)math.ceil(math.sqrt(settings.colonyNum));
-            float s = settings.sizeScale;//1.0f / c;
+            float s = settings.sizeScale;
             for (int i = 0; i < settings.colonyNum; i++)
             {
                 float x = i % c + 0.5f;
@@ -77,7 +78,16 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
             RefRW<RandomSingleton> random = SystemAPI.GetSingletonRW<RandomSingleton>();
             int c =  (int)math.ceil(math.sqrt(settings.colonyNum));
-            float s = settings.sizeScale;//float s = 1.0f / c;
+            float s = settings.sizeScale;
+            
+            int bucketResolution = settings.bucketResolution;
+            var buckets = SystemAPI.GetSingletonBuffer<Bucket>();
+            buckets.Length = bucketResolution * bucketResolution;
+            for (int i = 0; i < buckets.Length; ++i)
+            {
+                buckets[i] = new Bucket { obstacles = new UnsafeList<float2>(0, Allocator.Persistent) };
+            }
+            
             int index = 0;
             foreach (var antSpawner in SystemAPI.Query<AntSpawnerSettings>())
             {
@@ -89,14 +99,14 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 {
                     float ringRadius = (i / (ringCount + 1f)) * (0.5f*s);
                     float circumference = ringRadius * 2f * math.PI;
-                    int maxCount = (int)math.ceil(circumference / (antSpawner.blobData.Value.obstacleSize*s/settings.mapSize));
+                    int maxCount = (int)math.ceil(circumference / (settings.obstacleSize*s/settings.mapSize));
                     int offset = random.ValueRW.random.NextInt(0,maxCount);
                     int holeCount = random.ValueRW.random.NextInt(1,3);
 
                     for (int j = 0; j < maxCount; ++j)
                     {
                         float fillRatio = (float)j / maxCount;
-                        if (((fillRatio * holeCount) % 1f) < antSpawner.blobData.Value.maxObstaclesFillRatio)
+                        if (((fillRatio * holeCount) % 1f) < settings.maxObstaclesFillRatio)
                         {
                             float angle = (j + offset) / (float)maxCount * (2f * Mathf.PI);
                             var obstacle = state.EntityManager.Instantiate(settings.obstaclePrefab);
@@ -110,6 +120,30 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                         }
                     }
                 }
+                // 添加所有障碍物到buckets
+                foreach (var position in obstaclePositions)
+                {
+                    float radius = settings.obstacleSize;
+                    for (int xx = (int)math.floor((position.x - radius) / settings.mapSize * bucketResolution); xx <= (int)math.floor((position.x + radius) / settings.mapSize * bucketResolution); xx++)
+                    {
+                        if (xx < 0 || xx >= bucketResolution)
+                        {
+                            continue;
+                        }
+                        for (int yy = (int)math.floor((position.y - radius) / settings.mapSize * bucketResolution); yy <= (int)math.floor((position.y + radius) / settings.mapSize * bucketResolution); yy++)
+                        {
+                            if (yy < 0 || yy >= bucketResolution)
+                            {
+                                continue;
+                            }
+                            int id = xx + yy * bucketResolution;
+                            var list = buckets[id].obstacles;
+                            list.Add(position);
+                            buckets[id] = new Bucket { obstacles = list };
+                        }
+                    }
+                }
+                
                 index++;
             }
         }
@@ -119,10 +153,10 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
             var pheromones = state.EntityManager.CreateEntity();
             var pheromonesBuffer = state.EntityManager.AddBuffer<Pheromone>(pheromones);
-            pheromonesBuffer.Length = (int)settings.mapSize * (int)settings.mapSize;
-            for (var i = 0; i < pheromonesBuffer.Length; i++)
+            pheromonesBuffer.Length = (int)settings.mapSize * (int)settings.mapSize * settings.colonyNum;
+            for (var j = 0; j < pheromonesBuffer.Length; j++)
             {
-                pheromonesBuffer[i] = new Pheromone { strength = 0f, colonyID = -1 };
+                pheromonesBuffer[j] = new Pheromone { strength = 0f };
             }
         }
     }

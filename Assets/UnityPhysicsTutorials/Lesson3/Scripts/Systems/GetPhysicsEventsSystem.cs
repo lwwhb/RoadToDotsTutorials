@@ -33,6 +33,7 @@ namespace DOTS.PHYSICS.LESSON3
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<SimulationSingleton>();
+            state.Enabled = false;
         }
         
         public void OnUpdate(ref SystemState state)

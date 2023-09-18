@@ -9,18 +9,11 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float pheromoneGrowthRate;       //信息素增长率
         public float pheromoneDecayRate;        //信息素衰减率
         
-        public float randomSteering;            //随机转向
-        public float pheromoneSteerStrength;    //信息素转向强度
-        public float pheromoneSteerDistance;    //信息素转向距离
         public float wallSteerStrength;         //墙壁转向强度
         public float wallSteerDistance;         //墙壁转向距离
         public float resourceSteerStrength;     //资源转向强度
         public float outwardStrength;           //外部强度
         public float inwardStrength;            //内部强度
-        
-        public float maxObstaclesFillRatio;    //最大障碍物填充率
-        public float obstacleSize;             //障碍物大小
-        public int bucketResolution;           //障碍物桶分辨率
     }
     public struct AntSpawnerSettings : IComponentData
     {
@@ -73,17 +66,12 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 ref AntSpawnerBlobData spawnerBlobData = ref builder.ConstructRoot<AntSpawnerBlobData>();
                 spawnerBlobData.pheromoneGrowthRate = 2.0f;
                 spawnerBlobData.pheromoneDecayRate = 0.985f;
-                spawnerBlobData.randomSteering = 8.0f;
-                spawnerBlobData.pheromoneSteerStrength = 0.86f;
-                spawnerBlobData.pheromoneSteerDistance = 3.0f;
+                
                 spawnerBlobData.wallSteerStrength = 6.875f;
                 spawnerBlobData.wallSteerDistance = 1.5f;
                 spawnerBlobData.resourceSteerStrength = 2.3f;
                 spawnerBlobData.outwardStrength = 0.5f;
                 spawnerBlobData.inwardStrength = 0.5f;
-                spawnerBlobData.maxObstaclesFillRatio = 0.8f;
-                spawnerBlobData.obstacleSize = 2.0f;             
-                spawnerBlobData.bucketResolution = 64;           
 
                 var result = builder.CreateBlobAssetReference<AntSpawnerBlobData>(Allocator.Persistent);
                 builder.Dispose();
