@@ -147,13 +147,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288564286}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &288564288
 MonoBehaviour:
@@ -168,8 +168,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: 128
-  colonyNum: 4
+  colonyNum: 3
   sizeScale: 1
+  maxObstaclesFillRatio: 0.8
+  obstacleSize: 0.5
+  bucketResolution: 16
+  wallSteerStrength: 6.875
+  wallSteerDistance: 1.5
+  wallPushbackUnits: 0.1
+  resourceSteerStrength: 2.3
   homePrefab: {fileID: 453911749448542670, guid: 1e530123ea26746cfa85035eef20027b,
     type: 3}
   obstaclePrefab: {fileID: 6795705722624529003, guid: 227b4dfcddb6e409abf5bcf7ff91705a,
@@ -254,3 +261,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df65b810855b1475385b7eed84b8f23a, type: 3}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 1684118928}
+  - {fileID: 288564287}

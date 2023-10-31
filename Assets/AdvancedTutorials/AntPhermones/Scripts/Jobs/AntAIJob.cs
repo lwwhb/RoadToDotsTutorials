@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace DOTS.ADVANCED.ANTPHERMONES
@@ -67,31 +68,30 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float wallPushbackUnits;
         [ReadOnly]
         public NativeArray<Bucket> buckets;
-        public void Execute(Entity entity, ref Ant ant, ref Position position, in Direction direction)
+        public void Execute(ref Ant ant, ref Position position, in Direction direction)
         {
             int output = 0; 
 
             var directionInRadians = direction.direction / 180f * (float) math.PI;
-
-            // this for loop makes us check the direction * -1 and * 1
+            // 循环检查方向的正负
             for (int i = -1; i <= 1; i += 2)
             {
                 float angle = directionInRadians + i * math.PI * 0.25f;
-                float testX = position.position.x + math.cos(angle) * distance;
-                float testY = position.position.y + math.sin(angle) * distance;
-
+                float testX = position.position.x*mapSize + math.cos(angle) * distance;
+                float testY = position.position.y*mapSize + math.sin(angle) * distance;
+                
                 float obstacleX, obstacleY;
                 if (DetectPositionInBuckets(testX, testY, buckets, obstacleSize, mapSize, bucketResolution, out obstacleX, out obstacleY))
                 {
                     output -= i;
 
-                    // Move the ant away from the obstacle 
-                    var dx = position.position.x - obstacleX;
-                    var dy = position.position.y - obstacleY;
+                    // 从障碍物中推回
+                    var dx = position.position.x*mapSize - obstacleX;
+                    var dy = position.position.y*mapSize - obstacleY;
                     var pushbackAngle = math.atan2(dy, dx);
 
-                    position.position.x += math.cos(pushbackAngle) * wallPushbackUnits;
-                    position.position.y += math.sin(pushbackAngle) * wallPushbackUnits;
+                    position.position.x += (math.cos(pushbackAngle) * wallPushbackUnits)/mapSize;
+                    position.position.y += (math.sin(pushbackAngle) * wallPushbackUnits)/mapSize;
                 }
             }
 
@@ -102,7 +102,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
             obstacleX = 0;
             obstacleY = 0;
-            // test map boundaries
+            // 测试地图边界
             if (x < 0 || y < 0 || x >= mapSize || y >= mapSize)
             {
                 return true;
@@ -120,7 +120,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 {
                     obstacleX = obstaclePosition.x;
                     obstacleY = obstaclePosition.y;
-                    if (math.pow(x - obstacleX, 2) + math.pow(y - obstacleY, 2) <= math.pow(obstacleSize,2))
+                    if (math.pow(x - obstacleX*mapSize, 2) + math.pow(y - obstacleY*mapSize, 2) <= math.pow(obstacleSize,2))
                     {
                         return true;
                     }
@@ -201,6 +201,62 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 {
                     ant.resourceSteering = math.degrees(targetAngle - directionInRad)/30f;
                 }
+            }
+        }
+    }
+    
+    [BurstCompile]
+    [WithAll(typeof(Ant))]
+    public partial struct AntTransformJob : IJobEntity
+    {
+        public void Execute(
+            ref Position position, 
+            ref Direction direction, 
+            ref Speed speed,
+            ref LocalTransform localTransform,
+            in Ant ant)
+        {
+            // 计算转向值系数
+            // 优先级：资源 > 信息素 > 障碍物
+            // 优先级越高，转向角度越大
+            // 优先级相同，转向角度相加
+            if (ant.resourceSteering > math.EPSILON)
+                direction.direction += ant.resourceSteering;
+            else
+                direction.direction += ant.wallSteering + ant.pheroSteering + ant.resourceSteering;
+
+            while (direction.direction > 180f)
+                direction.direction -= 360f;
+            
+            while (direction.direction < -180f)
+                direction.direction += 360f;
+            
+            // 管理速度
+            // 转向时速度减慢
+            var steeringInRad = (ant.wallSteering + ant.pheroSteering + ant.resourceSteering) / 180f * math.PI;
+            var oldSpeed = speed.speed;
+            var targetSpeed = speed.maxSpeed;
+            targetSpeed *= 1f - Mathf.Abs(steeringInRad) / 3f;
+            speed.speed += (targetSpeed - oldSpeed) * speed.accel;
+
+            var directionRad = direction.direction / 180f * math.PI;
+            localTransform.Rotation = quaternion.Euler(0, 0, directionRad);
+
+            // 移动蚂蚁
+            var oldPosition = position.position;
+            var speedValue = speed.speed;
+            var deltaPos = new float2(
+                (float)(speedValue * math.cos(directionRad)),
+                (float) (speedValue * math.sin(directionRad)));  
+            var newPosition = oldPosition + deltaPos;
+            
+            // 蚂蚁移动出边界，转向180度，否则更新位置
+            if (newPosition.x < 0f || newPosition.x > 1.0f || newPosition.y < 0f || newPosition.y > 1.0f)
+                direction.direction = direction.direction + 180;
+            else
+            {
+                position.position = newPosition;
+                localTransform.Position = new float3(newPosition.x, newPosition.y, 0);
             }
         }
     }

@@ -9,9 +9,6 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float pheromoneGrowthRate;       //信息素增长率
         public float pheromoneDecayRate;        //信息素衰减率
         
-        public float wallSteerStrength;         //墙壁转向强度
-        public float wallSteerDistance;         //墙壁转向距离
-        public float resourceSteerStrength;     //资源转向强度
         public float outwardStrength;           //外部强度
         public float inwardStrength;            //内部强度
     }
@@ -67,9 +64,6 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 spawnerBlobData.pheromoneGrowthRate = 2.0f;
                 spawnerBlobData.pheromoneDecayRate = 0.985f;
                 
-                spawnerBlobData.wallSteerStrength = 6.875f;
-                spawnerBlobData.wallSteerDistance = 1.5f;
-                spawnerBlobData.resourceSteerStrength = 2.3f;
                 spawnerBlobData.outwardStrength = 0.5f;
                 spawnerBlobData.inwardStrength = 0.5f;
 

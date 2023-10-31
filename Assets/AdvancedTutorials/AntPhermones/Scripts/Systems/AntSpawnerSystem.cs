@@ -33,6 +33,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
         }
 
+        //创建蚂蚁
         [BurstCompile]
         private void GenerateAnts(ref SystemState state)
         {
@@ -48,6 +49,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             ecb.Dispose();
         }
 
+        //初始化蚂蚁
         [BurstCompile]
         private void InitialAnts(ref SystemState state)
         {
@@ -63,7 +65,9 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 {
                     position.ValueRW.position = spawnerPosition + new float2(random.ValueRW.random.NextFloat(-5f,5f)*s,random.ValueRW.random.NextFloat(-5f,5f)*s)/levelSettings.mapSize;
                     direction.ValueRW.direction = random.ValueRW.random.NextFloat(0, 360.0f);
-                    speed.ValueRW.speed = settings.ValueRO.antMaxSpeed;
+                    speed.ValueRW.speed = 0;
+                    speed.ValueRW.maxSpeed = settings.ValueRO.antMaxSpeed*s/levelSettings.mapSize;
+                    speed.ValueRW.accel = settings.ValueRO.antAccel*s/levelSettings.mapSize;
                     localTransform.ValueRW.Position =
                         new float3(position.ValueRW.position.x, position.ValueRW.position.y, 0);
                     localTransform.ValueRW.Scale = settings.ValueRO.antScale*s/levelSettings.mapSize;

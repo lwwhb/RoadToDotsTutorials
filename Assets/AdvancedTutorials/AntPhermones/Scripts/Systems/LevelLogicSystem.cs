@@ -35,6 +35,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
         }
         
+        //创建蚂蚁群落
         [BurstCompile]
         private void GenerateColonies(ref SystemState state, ref LevelSettings settings)
         {
@@ -52,6 +53,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             }
         }
         
+        //创建资源
         [BurstCompile]
         private void GenerateResources(ref SystemState state, LevelSettings settings)
         {
@@ -73,6 +75,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             }
         }
 
+        //创建路障
         [BurstCompile]
         private void GenerateObstacles(ref SystemState state, LevelSettings settings)
         {
@@ -124,13 +127,13 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 foreach (var position in obstaclePositions)
                 {
                     float radius = settings.obstacleSize;
-                    for (int xx = (int)math.floor((position.x - radius) / settings.mapSize * bucketResolution); xx <= (int)math.floor((position.x + radius) / settings.mapSize * bucketResolution); xx++)
+                    for (int xx = (int)math.floor((position.x*settings.mapSize - radius) / settings.mapSize * bucketResolution); xx <= (int)math.floor((position.x*settings.mapSize + radius) / settings.mapSize * bucketResolution); xx++)
                     {
                         if (xx < 0 || xx >= bucketResolution)
                         {
                             continue;
                         }
-                        for (int yy = (int)math.floor((position.y - radius) / settings.mapSize * bucketResolution); yy <= (int)math.floor((position.y + radius) / settings.mapSize * bucketResolution); yy++)
+                        for (int yy = (int)math.floor((position.y*settings.mapSize - radius) / settings.mapSize * bucketResolution); yy <= (int)math.floor((position.y*settings.mapSize + radius) / settings.mapSize * bucketResolution); yy++)
                         {
                             if (yy < 0 || yy >= bucketResolution)
                             {
@@ -148,6 +151,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             }
         }
 
+        //创建信息素
         [BurstCompile]
         private void GeneratePheromones(ref SystemState state, LevelSettings settings)
         {

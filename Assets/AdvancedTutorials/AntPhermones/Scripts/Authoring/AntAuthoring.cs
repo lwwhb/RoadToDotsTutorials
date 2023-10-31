@@ -14,6 +14,8 @@ namespace DOTS.ADVANCED.ANTPHERMONES
     public struct Speed : IComponentData
     {
         public float speed;
+        public float maxSpeed;
+        public float accel;
     }
 
     public struct Direction : IComponentData
@@ -34,8 +36,6 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float pheroSteering;     //信息素的转向
         public float resourceSteering;  //食物的转向
         public bool hasResource;        //是否已经携带食物
-        
-        
     }
     
     public struct AntProperties : IComponentData
