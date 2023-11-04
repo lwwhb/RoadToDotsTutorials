@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapSize: 128
-  colonyNum: 3
+  colonyNum: 4
   sizeScale: 1
   maxObstaclesFillRatio: 0.8
   obstacleSize: 0.5
@@ -176,7 +176,7 @@ MonoBehaviour:
   wallSteerStrength: 6.875
   wallSteerDistance: 1.5
   wallPushbackUnits: 0.1
-  resourceSteerStrength: 2.3
+  pheromoneDecayRate: 0.985
   homePrefab: {fileID: 453911749448542670, guid: 1e530123ea26746cfa85035eef20027b,
     type: 3}
   obstaclePrefab: {fileID: 6795705722624529003, guid: 227b4dfcddb6e409abf5bcf7ff91705a,

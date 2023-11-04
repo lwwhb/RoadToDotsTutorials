@@ -3,7 +3,9 @@ using Unity.Burst;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -15,9 +17,9 @@ namespace DOTS.ADVANCED.ANTPHERMONES
     partial struct RandomSteeringJob : IJobEntity
     {
         [NativeDisableUnsafePtrRestriction]public RefRW<RandomSingleton> random;
-        void Execute(ref Direction direction, in AntProperties properties)
+        void Execute(ref Ant ant, ref Direction direction, in AntProperties properties)
         {
-            float steeringStrength = properties.blobData.Value.randomSteering;
+            float steeringStrength = ant.hasResource ? properties.blobData.Value.randomSteering * 0.5f : properties.blobData.Value.randomSteering;
             direction.direction += random.ValueRW.random.NextFloat(-steeringStrength, steeringStrength);
         }
     }
@@ -43,11 +45,10 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 var testX = position.position.x*mapSize + math.cos(angle) * distance;
                 var testY = position.position.y*mapSize + math.sin(angle) * distance;
                 
-                int offset = mapSize*mapSize*colonyID.id;
                 if (testX >= 0 && testY >= 0 && testX < mapSize && testY < mapSize)
                 {
                     var index = (int)testX + (int)testY * mapSize;
-                    var value = pheromones[index+offset].strength;
+                    var value = pheromones[index].strength;
                     output += value * i;
                 }
             }
@@ -135,42 +136,47 @@ namespace DOTS.ADVANCED.ANTPHERMONES
     [WithAll(typeof(Ant))]
     public partial struct ResourceDetectionJob : IJobEntity
     {
-        public float distance;
+        [NativeDisableUnsafePtrRestriction]public RefRW<RandomSingleton> random;
         public float mapSize;
+        public float sizeScale;
         public float obstacleSize;
-        public float steeringStrength;
         
         public int bucketResolution;
-        public float2 resourcePosition;
-        public float2 homePosition;
+        [ReadOnly]
+        public NativeArray<float2> resourcesPosition;
+        [ReadOnly]
+        public NativeArray<float2> homesPosition;
         [ReadOnly]
         public NativeArray<Bucket> buckets;
 
-        public void Execute(ref Ant ant, in Position position, in Direction direction)
+        public void Execute(ref Ant ant, in ColonyID colonyID, in Position position, in Direction direction)
         {
+            //int resourcesNum = resourcesPosition.Length;
+            //int randomResourceIndex = random.ValueRW.random.NextInt(0, resourcesNum - 1);
+            //float2 resourcePosition = resourcesPosition[randomResourceIndex];
+            float2 resourcePosition = resourcesPosition[colonyID.id];
+            float2 homePosition = homesPosition[colonyID.id];
             float2 targetPosition = ant.hasResource ? homePosition : resourcePosition;
 
             float dx = targetPosition.x - position.position.x;
             float dy = targetPosition.y - position.position.y;
             float dist = math.sqrt(dx * dx + dy * dy);
-
-
-            // we are at the target
-            if (dist < 4f)
+            
+            // 到达目标点
+            if (dist < (ant.hasResource? 8f : 4f)*sizeScale/mapSize)
             {
                 ant.hasResource = !ant.hasResource;
                 ant.resourceSteering = 180f;
                 return;
             }
 
-
-            int stepCount = (int)math.ceil(dist * .5f);
+            int stepCount = (int)math.ceil(dist * mapSize / sizeScale);
             bool blocked = false;
             for (int i = 0; i < stepCount; ++i)
             {
                 float t = (float)i / stepCount;
                 float _, __;
-                if (ObstacleDetectionJob.DetectPositionInBuckets(position.position.x + dx * t, position.position.y + dy * t,
+                if (ObstacleDetectionJob.DetectPositionInBuckets((position.position.x + dx * t)*mapSize, (position.position.y + dy * t)*mapSize,
                     buckets, obstacleSize, mapSize, bucketResolution, out _, out __))
                 {
                     blocked = true;
@@ -204,6 +210,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             }
         }
     }
+    
     
     [BurstCompile]
     [WithAll(typeof(Ant))]
@@ -258,6 +265,63 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 position.position = newPosition;
                 localTransform.Position = new float3(newPosition.x, newPosition.y, 0);
             }
+        }
+    }
+    
+    [BurstCompile]
+    [WithAll(typeof(Ant))]
+    public partial struct PheromoneDropJob : IJobEntity
+    {
+        public float deltaTime;
+        public int mapSize;
+        [NativeDisableParallelForRestriction]
+        public NativeArray<Pheromone> pheromones;
+
+        public void Execute(in Ant ant, in AntProperties properties, in Position position, in Speed speed)
+        {
+            var strength = ant.hasResource ? 0.5f : 0.1f;
+            strength *= speed.speed / speed.maxSpeed;
+
+            var gridPosition = math.int2(math.floor(position.position*mapSize));
+            if (gridPosition.x < 0 || gridPosition.y < 0 || gridPosition.x >= mapSize || gridPosition.y >= mapSize)
+            {
+                return;
+            }
+
+            var index = gridPosition.x + gridPosition.y * mapSize;
+            var pheromone = pheromones[index];
+            pheromone.strength += properties.blobData.Value.pheromoneGrowthRate * strength * (1f - pheromone.strength) * deltaTime;
+            pheromones[index] = pheromone;
+        }
+    }
+    
+    [BurstCompile]
+    public struct PheromoneDecayJob : IJobFor
+    {
+        public float pheromoneDecayRate;
+        [NativeDisableParallelForRestriction]
+        public DynamicBuffer<Pheromone> pheromones;
+
+        public void Execute(int index)
+        {
+            var pheromone = pheromones[index];
+            pheromone.strength *= pheromoneDecayRate;
+            pheromones[index] = pheromone;
+        }
+    }
+    
+    
+    [BurstCompile]
+    [WithAll(typeof(Ant))]
+    public partial struct AntRenderingJob : IJobEntity
+    {
+        [BurstCompile]
+        public void Execute(in Ant ant, ref URPMaterialPropertyBaseColor color)
+        {
+            if (ant.hasResource)
+                color.Value = new Vector4(1, 1, 0, 1);
+            else
+                color.Value = new Vector4(0, 0, 1, 1);
         }
     }
 }

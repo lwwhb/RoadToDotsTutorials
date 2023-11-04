@@ -50,6 +50,8 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 var localTransform = SystemAPI.GetComponentRW<LocalTransform>(home);
                 localTransform.ValueRW.Position = new float3(x*s, y*s, 0);
                 localTransform.ValueRW.Scale = 4.0f*s/settings.mapSize;
+                var homeRW = SystemAPI.GetComponentRW<Home>(home);
+                homeRW.ValueRW.position = new float2(x*s, y*s);
             }
         }
         
@@ -72,10 +74,13 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                     y*s + 0.45f * s * math.sin(resourceAngle), 
                     0);
                 localTransform.ValueRW.Scale = 4.0f*s/settings.mapSize;
+                var resourceRW = SystemAPI.GetComponentRW<Resource>(resource);
+                resourceRW.ValueRW.position = new float2(x * s + 0.45f * s * math.cos(resourceAngle),
+                    y * s + 0.45f * s * math.sin(resourceAngle));
             }
         }
 
-        //创建路障
+        //创建路W
         [BurstCompile]
         private void GenerateObstacles(ref SystemState state, LevelSettings settings)
         {
@@ -157,7 +162,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         {
             var pheromones = state.EntityManager.CreateEntity();
             var pheromonesBuffer = state.EntityManager.AddBuffer<Pheromone>(pheromones);
-            pheromonesBuffer.Length = (int)settings.mapSize * (int)settings.mapSize * settings.colonyNum;
+            pheromonesBuffer.Length = (int)settings.mapSize * (int)settings.mapSize;
             for (var j = 0; j < pheromonesBuffer.Length; j++)
             {
                 pheromonesBuffer[j] = new Pheromone { strength = 0f };

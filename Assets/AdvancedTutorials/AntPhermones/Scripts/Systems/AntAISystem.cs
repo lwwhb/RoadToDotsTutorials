@@ -1,26 +1,40 @@
 using DOTS.DOD;
-using Mono.Cecil;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace DOTS.ADVANCED.ANTPHERMONES
 {
     [RequireMatchingQueriesForUpdate]
     [UpdateInGroup(typeof(AntPhermonesSystemGroup))]
+    [CreateAfter(typeof(AntSpawnerSystem))]
     [UpdateAfter(typeof(AntSpawnerSystem))]
-    public partial struct AntAISystem : ISystem
+    public partial struct AntAISystem : ISystem, ISystemStartStop
     {
+        private EntityQuery resourcesQuery;
+        private EntityQuery homesQuery;
+        private NativeArray<float2> resourcesPosArray;
+        private NativeArray<float2> homesPosArray;
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<LevelSettings>();
+            state.RequireForUpdate<Home>();
+            state.RequireForUpdate<Resource>();
             state.RequireForUpdate<Ant>();
+           
         }
-
+        public void OnStartRunning(ref SystemState state)
+        {
+            resourcesQuery = state.GetEntityQuery( typeof(Resource));
+            homesQuery = state.GetEntityQuery( typeof(Home));
+            resourcesPosArray = resourcesQuery.ToComponentDataArray<Resource>(Allocator.Persistent).Reinterpret<float2>();
+            homesPosArray = homesQuery.ToComponentDataArray<Home>(Allocator.Persistent).Reinterpret<float2>();
+        }
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
@@ -57,27 +71,49 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             var obstacleJobHandle = obstacleJob.ScheduleParallel(pheromoneDetectionJobHandle);
             
             // 检测食物
-            /*var resourceTransform = SystemAPI.GetComponent<LocalTransform>(SystemAPI.GetSingletonEntity<Resource>());
-            var homePosition = SystemAPI.GetComponent<LocalTransform>(SystemAPI.GetSingletonEntity<Home>());
             var resourceJob = new ResourceDetectionJob
             {
+                random = random,
                 obstacleSize = settings.obstacleSize,
                 mapSize = settings.mapSize,
-                steeringStrength = settings.resourceSteerStrength,
+                sizeScale = settings.sizeScale,
                 bucketResolution = settings.bucketResolution,
                 buckets = SystemAPI.GetSingletonBuffer<Bucket>().AsNativeArray(),
-                homePosition = new float2(homePosition.Position.x, homePosition.Position.y),
-                resourcePosition = new float2(resourceTransform.Position.x, resourceTransform.Position.y)
+                resourcesPosition = resourcesPosArray,
+                homesPosition= homesPosArray
             };
-            var resourceJobHandle = resourceJob.ScheduleParallel(obstacleJobHandle);*/
+            var resourceJobHandle = resourceJob.ScheduleParallel(obstacleJobHandle);
             
-            // Dynamics
-            //var combinedDependency = JobHandle.CombineDependencies(pheromoneDetectionJobHandle, obstacleJobHandle, resourceJobHandle);
-
+            // 处理蚂蚁移动逻辑
+            var combinedDependency = JobHandle.CombineDependencies(pheromoneDetectionJobHandle, obstacleJobHandle, resourceJobHandle);
             var antTransformJob = new AntTransformJob();
-            //state.Dependency = antTransformJob.ScheduleParallel(combinedDependency);
-            state.Dependency = antTransformJob.ScheduleParallel(obstacleJobHandle);
-            //
+            var dynamicsJobHandle = antTransformJob.ScheduleParallel(combinedDependency);
+            
+            // 处理蚂蚁留下的信息素
+            pheromoneDetectionJobHandle.Complete(); 
+            var nativePheromones = pheromones.AsNativeArray();
+            var pheromoneDropJob = new PheromoneDropJob
+            {
+                deltaTime = SystemAPI.Time.fixedDeltaTime,
+                mapSize = (int)settings.mapSize,
+                pheromones = nativePheromones
+            };
+            var pheromoneDropJobHandle = pheromoneDropJob.ScheduleParallel(dynamicsJobHandle);
+            pheromoneDropJobHandle.Complete(); 
+            
+            // 处理信息素衰减
+            var pheromoneDecayJob = new PheromoneDecayJob
+            {
+                pheromoneDecayRate = settings.pheromoneDecayRate,
+                pheromones = pheromones
+            };
+            state.Dependency = pheromoneDecayJob.ScheduleParallel(pheromones.Length, 100, pheromoneDropJobHandle);
+        }
+
+        public void OnStopRunning(ref SystemState state)
+        {
+            resourcesPosArray.Dispose();
+            homesPosArray.Dispose();
         }
     }
 }

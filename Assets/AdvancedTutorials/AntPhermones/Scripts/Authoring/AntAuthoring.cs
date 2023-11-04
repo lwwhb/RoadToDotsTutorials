@@ -28,6 +28,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float randomSteering;            //随机转向
         public float pheromoneSteerStrength;    //信息素转向强度
         public float pheromoneSteerDistance;    //信息素转向距离
+        public float pheromoneGrowthRate;       //信息素增长率
     }
     
     public struct Ant : IComponentData
@@ -77,6 +78,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
             antBlobData.randomSteering = 8.0f;
             antBlobData.pheromoneSteerStrength = 0.86f;
             antBlobData.pheromoneSteerDistance = 3.0f;
+            antBlobData.pheromoneGrowthRate = 2.0f;
             
             var result = builder.CreateBlobAssetReference<AntBlobData>(Allocator.Persistent);
             builder.Dispose();

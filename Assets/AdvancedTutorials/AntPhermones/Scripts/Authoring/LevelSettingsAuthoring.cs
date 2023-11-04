@@ -25,7 +25,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         public float wallSteerDistance;         //墙壁转向距离
         public float wallPushbackUnits;         //墙壁推回单位
         
-        public float resourceSteerStrength;     //资源转向强度
+        public float pheromoneDecayRate;        //信息素衰减率
 
         public Entity homePrefab;     //蚂蚁窝预制体
         public Entity obstaclePrefab;   //障碍物预制体
@@ -38,12 +38,12 @@ namespace DOTS.ADVANCED.ANTPHERMONES
         [Range(1, 16)]public int colonyNum = 1;   //群落个数
         [HideInInspector]public float sizeScale = 1; //缩放比例
         [HideInInspector]public float maxObstaclesFillRatio = 0.8f;    //最大障碍物填充率
-        [HideInInspector]public float obstacleSize = 0.5f;      //障碍物大小
+        [HideInInspector]public float obstacleSize = 1.5f;      //障碍物大小
         [HideInInspector]public int bucketResolution = 16;      //障碍物桶分辨率
         [HideInInspector]public float wallSteerStrength = 6.875f;   //墙壁转向强度
         [HideInInspector]public float wallSteerDistance = 1.5f; //墙壁转向距离
         [HideInInspector]public float wallPushbackUnits = 0.1f; //墙壁推回单位
-        [HideInInspector]public float resourceSteerStrength = 2.3f; //资源转向强度
+        [HideInInspector]public float pheromoneDecayRate = 0.985f; //信息素衰减率
         public GameObject homePrefab;
         public GameObject obstaclePrefab;
         public GameObject resourcePrefab;
@@ -63,7 +63,7 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                     wallSteerStrength = authoring.wallSteerStrength,
                     wallSteerDistance = authoring.wallSteerDistance,
                     wallPushbackUnits = authoring.wallPushbackUnits,
-                    resourceSteerStrength = authoring.resourceSteerStrength,
+                    pheromoneDecayRate = authoring.pheromoneDecayRate,
                     homePrefab = GetEntity(authoring.homePrefab, TransformUsageFlags.Renderable),
                     obstaclePrefab = GetEntity(authoring.obstaclePrefab, TransformUsageFlags.Renderable),
                     resourcePrefab = GetEntity(authoring.resourcePrefab, TransformUsageFlags.Renderable)

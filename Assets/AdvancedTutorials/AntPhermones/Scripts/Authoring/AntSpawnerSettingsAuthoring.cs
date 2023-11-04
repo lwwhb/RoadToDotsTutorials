@@ -1,14 +1,13 @@
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace DOTS.ADVANCED.ANTPHERMONES
 {
     public struct AntSpawnerBlobData
     {
-        public float pheromoneGrowthRate;       //信息素增长率
-        public float pheromoneDecayRate;        //信息素衰减率
-        
         public float outwardStrength;           //外部强度
         public float inwardStrength;            //内部强度
     }
@@ -61,8 +60,6 @@ namespace DOTS.ADVANCED.ANTPHERMONES
                 var builder = new BlobBuilder(Allocator.Temp);
 
                 ref AntSpawnerBlobData spawnerBlobData = ref builder.ConstructRoot<AntSpawnerBlobData>();
-                spawnerBlobData.pheromoneGrowthRate = 2.0f;
-                spawnerBlobData.pheromoneDecayRate = 0.985f;
                 
                 spawnerBlobData.outwardStrength = 0.5f;
                 spawnerBlobData.inwardStrength = 0.5f;
