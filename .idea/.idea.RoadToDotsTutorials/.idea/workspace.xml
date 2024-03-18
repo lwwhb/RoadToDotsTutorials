@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff19322a-5c1e-4d48-af90-f04f2414c420" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/HomeAuthoring.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/HomeAuthoring.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/ResourceAuthoring.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/ResourceAuthoring.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/RenderingSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/RenderingSystem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RoadToDotsTutorials/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Prefabs/Home.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Prefabs/Home.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Prefabs/Resource.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Prefabs/Resource.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scenes/ant_dots.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scenes/ant_dots.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scenes/ant_subscene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scenes/ant_subscene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/AntAuthoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/AntAuthoring.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/AntSpawnerSettingsAuthoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/AntSpawnerSettingsAuthoring.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/LevelSettingsAuthoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/LevelSettingsAuthoring.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Components/Pheromone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Components/Pheromone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Jobs/AntAIJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Jobs/AntAIJob.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/AntAISystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/AntAISystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/LevelLogicSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/LevelLogicSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedTutorials/Common.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +21,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Authoring/AntAuthoring.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Components/ColonyID.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Components/Pheromone.cs" root0="FORCE_HIGHLIGHTING" />
@@ -44,9 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/AntAISystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/AntSpawnerSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AdvancedTutorials/AntPhermones/Scripts/Systems/LevelLogicSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.8/Runtime/Intrinsics/Common.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.8/Tests/Editor/EditmodeTest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@2.1.4/Unity.Collections.Tests/UnsafeQueueTests_InJobs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.2.0/Editor/PlasticSCM/PlasticProjectSettingsProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities.graphics@1.0.16/Unity.Entities.Graphics/EntitiesGraphicsLightBakingDataSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@1.0.16/DocCodeSamples.Tests/BakingExamples.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@1.0.16/DocCodeSamples.Tests/BakingPrefabExamples.cs" root0="SKIP_HIGHLIGHTING" />
@@ -88,33 +71,10 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.16/Samples~/CustomPhysicsAuthoring/Unity.Physics.Custom/Joints/ModifyJointLimitsAuthoring.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.16/Samples~/CustomPhysicsAuthoring/Unity.Physics.Custom/Joints/RagdollJoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.physics@1.0.16/Tests/PlayModeTests/Collision/Geometry/BoundingVolumeHierarchyBuilderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.8/Editor/AdditionalPropertiesState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.8/Editor/PostProcessing/LensFlareDataSRPEditor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/CacheServer/CacheServerUploaderWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/CacheServer/Client.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/CacheServer/FileDownloadItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/CacheServer/IDownloadItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/Tasks/CalculateAssetDependencyData.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/Utilities/GraphicsSettingsApi.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/Utilities/LinkXMLGenerator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/Utilities/USerialize/DeSerializer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/Utilities/USerialize/Serializer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Editor/WriteTypes/SceneRawWriteOperation.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Tests/Catalog.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.scriptablebuildpipeline@1.21.8/Tests/Editor/CacheServer/Tests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.searcher@4.9.2/Samples~/Editor/SearcherExampleComponentEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.searcher@4.9.2/Samples~/Editor/SearcherExampleHostWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.8/Editor/Data/SubGraph/SubGraphAsset.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.8/Editor/Generation/Data/FieldDependency.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Editor/TMP_BaseEditorPanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_MaterialManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/Animation/AnimationClipCurveCache.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/Manipulators/Cursors/TimelineCursors.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/State/WindowState.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/TimelineHelpers.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/Undo/UndoExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/Window/TimelineWindow_PlayableLookup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.5/Editor/treeview/Snapping/SnapEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/SelectableEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/MoveDirection.cs" root0="SKIP_HIGHLIGHTING" />
@@ -157,7 +117,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -168,8 +128,8 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/haibowang/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/haibowang/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache&quot;,
+      &quot;/Users/haibowang/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/haibowang/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
       &quot;/Users/haibowang/.local/share/Symbols/src&quot;
     ]
   }
@@ -184,7 +144,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.9f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.21f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -192,7 +152,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.9f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.21f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -292,6 +252,20 @@
       <workItem from="1698893887888" duration="17624000" />
       <workItem from="1698980659732" duration="12734000" />
       <workItem from="1699006775742" duration="3020000" />
+      <workItem from="1700029232370" duration="6687000" />
+      <workItem from="1701075493370" duration="5815000" />
+      <workItem from="1701151905298" duration="6203000" />
+      <workItem from="1701246274664" duration="4323000" />
+      <workItem from="1701669657887" duration="3784000" />
+      <workItem from="1701760104351" duration="760000" />
+      <workItem from="1702372985527" duration="1817000" />
+      <workItem from="1702550603325" duration="691000" />
+      <workItem from="1703422671574" duration="93000" />
+      <workItem from="1703422861717" duration="78000" />
+      <workItem from="1707126897820" duration="611000" />
+      <workItem from="1708337908085" duration="19000" />
+      <workItem from="1710768985512" duration="409000" />
+      <workItem from="1710769491346" duration="331000" />
     </task>
     <servers />
   </component>
